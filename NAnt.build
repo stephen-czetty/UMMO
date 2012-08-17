@@ -109,7 +109,7 @@
 			<mkdir dir="${test.folder}" />
 		</if>
 		<!-- TODO: Get the mspec task from nant-extensions and use that. -->
-		<exec program="lib/Machine.Specifications/mspec.exe">
+		<exec program="lib/Machine.Specifications/mspec-clr4.exe">
 			<arg value="--html"/><arg value="${test.folder}" />
 			<arg line="&quot;${fileset::to-string('test.assemblies', '&quot; &quot;')}&quot;"/>
 		</exec>
