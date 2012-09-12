@@ -35,8 +35,8 @@ namespace UMMO.Extensions
     /// </summary>
     public static class Log4NetExtensions
     {
-        private static readonly Stack< KeyValuePair< string, string > > MethodStack =
-            new Stack< KeyValuePair< string, string > >();
+        [ThreadStatic]
+        private static Stack< KeyValuePair< string, string > > MethodStack;
 
         static Log4NetExtensions()
         {
@@ -66,6 +66,8 @@ namespace UMMO.Extensions
         {
             MethodBase callingMethod = GetCallingMethod();
             string fullyQualifiedName = callingMethod.DeclaringType.FullName + "." + callingMethod.Name;
+            if (MethodStack == null)
+                MethodStack = new Stack< KeyValuePair< string, string > >();
             MethodStack.Push( new KeyValuePair< string, string >( fullyQualifiedName, callingMethod.Name ) );
 
 
