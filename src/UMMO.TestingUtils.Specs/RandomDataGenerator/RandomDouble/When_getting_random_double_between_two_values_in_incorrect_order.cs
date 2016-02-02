@@ -40,7 +40,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDouble
             = () => _exception.ShouldNotBeNull();
 
         private It Should_throw_exception_of_type_argument_exception
-            = () => _exception.ShouldBeOfType<ArgumentException>();
+            = () => _exception.ShouldBeOfExactType<ArgumentException>();
 
         private static RandomData.RandomDouble _randomDouble;
         private static double _minValue;

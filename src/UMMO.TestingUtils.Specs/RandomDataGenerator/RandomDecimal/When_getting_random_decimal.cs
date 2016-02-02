@@ -33,7 +33,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDecimal
         private Because Of = () => _randomDecimal = RandomDataGeneratorUnderTest.Decimal;
 
         private It Should_be_of_type_random_decimal
-            = () => _randomDecimal.ShouldBeOfType< RandomData.RandomDecimal >();
+            = () => _randomDecimal.ShouldBeOfExactType< RandomData.RandomDecimal >();
 
         private It Should_return_expected_decimal_when_calling_value
             = () => ( (RandomData.RandomDecimal)_randomDecimal ).Value.ShouldEqual( ExpectedDecimal );

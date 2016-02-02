@@ -41,7 +41,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator
         private Because Of = () => _exception = Catch.Exception( () => new BadRandomNumeric( _random ) );
 
         private It Should_throw_random_data_exception
-            = () => _exception.ShouldBeOfType< RandomDataException >();
+            = () => _exception.ShouldBeOfExactType< RandomDataException >();
 
 
         private static IRandom _random;
@@ -59,12 +59,12 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator
 
         private It Should_return_boolean_when_calling_value
             =
-            () => _boolValue.ShouldBeOfType< Boolean >();
+            () => _boolValue.ShouldBeOfExactType< Boolean >();
 
         private It Should_throw_not_implemented_exception_when_calling_between
             =
             () =>
-            Catch.Exception( () => _badRandomNumeric.Between( false, true ) ).ShouldBeOfType
+            Catch.Exception( () => _badRandomNumeric.Between( false, true ) ).ShouldBeOfExactType
                 < NotImplementedException >();
 
         private static BadRandomNumeric _badRandomNumeric;
