@@ -12,6 +12,6 @@ namespace UMMO.Extensions.Specs.Log4NetExtensions
             = () => LoggerStub.VerifyAllExpectations();
 
         private It Should_return_an_i_exceptionlogger
-            = () => ReturnValue.ShouldBeOfExactType< ILogWrapper >();
+            = () => ReturnValue.ShouldBeAssignableTo< ILogWrapper >();
     }
 }
