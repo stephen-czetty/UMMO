@@ -31,7 +31,7 @@ using System.Runtime.InteropServices;
 [ assembly: AssemblyDescription( "Helpers and mocks for unit testing." ) ]
 [ assembly: AssemblyConfiguration( "" ) ]
 [ assembly: AssemblyCompany( "House of Czetty" ) ]
-[ assembly: AssemblyProduct( "SMC.TestingUtils" ) ]
+[ assembly: AssemblyProduct( "UMMO.TestingUtils" ) ]
 [ assembly: AssemblyCopyright( "Copyright © 2010-2016" ) ]
 [ assembly: AssemblyTrademark( "" ) ]
 [ assembly: AssemblyCulture( "" ) ]
