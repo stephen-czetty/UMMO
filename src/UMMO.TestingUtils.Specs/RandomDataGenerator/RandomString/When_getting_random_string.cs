@@ -27,7 +27,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomString
     public class When_getting_random_string : RandomStringSpecsBase
     {
         private It Should_be_of_type_random_string
-            = () => RandomString.ShouldBeOfType<RandomData.RandomString>();
+            = () => RandomString.ShouldBeOfExactType<RandomData.RandomString>();
 
         private It Should_implicitly_cast_to_string
             = () =>

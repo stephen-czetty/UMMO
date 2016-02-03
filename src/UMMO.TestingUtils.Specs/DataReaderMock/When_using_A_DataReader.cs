@@ -30,7 +30,7 @@ namespace UMMO.TestingUtils.Specs.DataReaderMock
         private Because Of = () => _mockObject = A.DataReader;
 
         private It Should_be_of_type_data_reader_mock
-            = () => _mockObject.ShouldBeOfType< TestingUtils.DataReaderMock >();
+            = () => _mockObject.ShouldBeOfExactType< TestingUtils.DataReaderMock >();
 
         private static IDataReader _mockObject;
     }

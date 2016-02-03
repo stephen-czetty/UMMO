@@ -18,7 +18,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.ExtendedRandom
             = () => _bytes.ShouldNotBeNull();
 
         private It Should_return_byte_array
-            = () => _bytes.ShouldBeOfType< byte[] >();
+            = () => _bytes.ShouldBeOfExactType< byte[] >();
 
         private It Should_return_byte_array_of_length_specified
             = () => ((byte[])_bytes).Length.ShouldEqual( _byteCount );

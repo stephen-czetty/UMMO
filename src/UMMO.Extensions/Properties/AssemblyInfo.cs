@@ -27,11 +27,11 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [ assembly: AssemblyTitle( "UMMO.Extensions" ) ]
-[ assembly: AssemblyDescription( "" ) ]
+[ assembly: AssemblyDescription("Utility extensions for some common .NET interfaces.") ]
 [ assembly: AssemblyConfiguration( "" ) ]
-[ assembly: AssemblyCompany( "" ) ]
+[ assembly: AssemblyCompany( "House of Czetty" ) ]
 [ assembly: AssemblyProduct( "UMMO.Extensions" ) ]
-[ assembly: AssemblyCopyright( "Copyright ©  2010" ) ]
+[ assembly: AssemblyCopyright( "Copyright © 2010-2016" ) ]
 [ assembly: AssemblyTrademark( "" ) ]
 [ assembly: AssemblyCulture( "" ) ]
 

@@ -115,7 +115,7 @@ namespace UMMO.TestingUtils.RandomData
         /// <returns>The result of the conversion.</returns>
         public static implicit operator string( RandomString randomString )
         {
-            return randomString.Noun;
+            return randomString.GetWaffle("|e|d|o");
         }
 
         private string GetWaffle( string phrase )

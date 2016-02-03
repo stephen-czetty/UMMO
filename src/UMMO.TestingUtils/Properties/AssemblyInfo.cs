@@ -27,12 +27,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[ assembly: AssemblyTitle( "SMC.TestingUtils" ) ]
-[ assembly: AssemblyDescription( "" ) ]
+[ assembly: AssemblyTitle( "UMMO.TestingUtils" ) ]
+[ assembly: AssemblyDescription( "Helpers and mocks for unit testing." ) ]
 [ assembly: AssemblyConfiguration( "" ) ]
-[ assembly: AssemblyCompany( "" ) ]
-[ assembly: AssemblyProduct( "SMC.TestingUtils" ) ]
-[ assembly: AssemblyCopyright( "Copyright ©  2010" ) ]
+[ assembly: AssemblyCompany( "House of Czetty" ) ]
+[ assembly: AssemblyProduct( "UMMO.TestingUtils" ) ]
+[ assembly: AssemblyCopyright( "Copyright © 2010-2016" ) ]
 [ assembly: AssemblyTrademark( "" ) ]
 [ assembly: AssemblyCulture( "" ) ]
 

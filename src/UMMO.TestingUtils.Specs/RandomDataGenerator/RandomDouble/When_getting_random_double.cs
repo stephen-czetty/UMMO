@@ -39,7 +39,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDouble
         private Because Of = () => _randomDouble = RandomDataGeneratorUnderTest.Double;
 
         private It Should_be_of_type_random_double
-            = () => _randomDouble.ShouldBeOfType< RandomData.RandomDouble >();
+            = () => _randomDouble.ShouldBeOfExactType< RandomData.RandomDouble >();
 
         private It Should_return_expected_double_when_calling_value
             = () => ( (RandomData.RandomDouble)_randomDouble ).Value.ShouldEqual( ExpectedDouble );

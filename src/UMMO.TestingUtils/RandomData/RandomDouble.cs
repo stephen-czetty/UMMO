@@ -28,6 +28,12 @@ namespace UMMO.TestingUtils.RandomData
         /// <returns></returns>
         protected override double GetBetween( double minValue, double maxValue )
         {
+            // double.MaxValue is giant, so if it's that, pick an arbritrarily large value > minValue
+// ReSharper disable CompareOfFloatsByEqualityOperator
+            if (maxValue == double.MaxValue)
+                maxValue = minValue + 1000000000;
+// ReSharper restore CompareOfFloatsByEqualityOperator
+
             return ( Random.NextDouble() * ( maxValue - minValue ) ) + minValue;
         }
     }
