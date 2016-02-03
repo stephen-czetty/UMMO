@@ -33,7 +33,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomInteger
         private Because Of = () => _randomInteger = RandomDataGeneratorUnderTest.Integer;
 
         private It Should_be_of_type_random_integer
-            = () => _randomInteger.ShouldBeOfType< RandomData.RandomInteger >();
+            = () => _randomInteger.ShouldBeOfExactType< RandomData.RandomInteger >();
 
         private It Should_return_expected_integer_when_calling_value
             = () => ( (RandomData.RandomInteger)_randomInteger ).Value.ShouldEqual( ExpectedInteger );

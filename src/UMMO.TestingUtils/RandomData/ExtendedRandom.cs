@@ -142,8 +142,9 @@ namespace UMMO.TestingUtils.RandomData
             if (minValue > maxValue)
                 throw new InvalidOperationException();
             long range = ((maxValue == Int64.MaxValue && minValue < 0) ||
-                           (minValue == Int64.MinValue && maxValue >= 0))
-                             ? Int64.MaxValue
+                           (minValue == Int64.MinValue && maxValue >= 0) ||
+                           (maxValue > 0 && minValue < 0 && (Int64.MaxValue - maxValue + minValue) < 0))
+                             ? Int64.MaxValue // Prevent overflows
                              : maxValue - minValue;
 
             // Some kind of weird thing is going on here...  It seems that

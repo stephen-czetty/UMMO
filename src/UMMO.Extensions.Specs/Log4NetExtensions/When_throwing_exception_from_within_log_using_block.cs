@@ -16,7 +16,7 @@ namespace UMMO.Extensions.Specs.Log4NetExtensions
             = () => _exception.ShouldNotBeNull();
 
         private It Should_be_of_type_application_exception
-            = () => _exception.ShouldBeOfType<ApplicationException>();
+            = () => _exception.ShouldBeOfExactType<ApplicationException>();
 
         private static Exception _exception;
 

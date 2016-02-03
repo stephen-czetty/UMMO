@@ -35,7 +35,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.ExtendedRandom
             = () => _exception.ShouldNotBeNull();
 
         private It Should_throw_invalid_operation_exception
-            = () => _exception.ShouldBeOfType<InvalidOperationException>();
+            = () => _exception.ShouldBeOfExactType<InvalidOperationException>();
 
         private static RandomData.ExtendedRandom _random;
         private static Exception _exception;

@@ -61,9 +61,9 @@ namespace UMMO.TestingUtils.Specs.DataReaderMock
         private static void AssertThatDataReaderFromGetDataIsCorrect(IDataReader dataReader, T expectedValue)
         {
             dataReader.Read().ShouldBeTrue();
-            dataReader[ 0 ].ShouldBeOfType< T >();
+            dataReader[ 0 ].ShouldBeOfExactType< T >();
             dataReader[ 0 ].ShouldEqual( expectedValue );
-            dataReader[ ColumnName ].ShouldBeOfType< T >();
+            dataReader[ ColumnName ].ShouldBeOfExactType< T >();
             dataReader[ ColumnName ].ShouldEqual( expectedValue );
         }
 
@@ -72,7 +72,7 @@ namespace UMMO.TestingUtils.Specs.DataReaderMock
             var objArray = new object[1];
             MockUnderTest.GetValues( objArray );
             objArray[ 0 ].ShouldNotBeNull();
-            objArray[ 0 ].ShouldBeOfType< T >();
+            objArray[ 0 ].ShouldBeOfExactType< T >();
             ( (T)objArray[ 0 ] ).ShouldEqual( expectedValue );
         }
     }

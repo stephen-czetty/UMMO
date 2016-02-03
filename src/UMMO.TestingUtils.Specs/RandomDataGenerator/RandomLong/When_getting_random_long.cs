@@ -42,7 +42,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomLong
         private Because Of = () => _randomLong = RandomDataGeneratorUnderTest.LongInteger;
 
         private It Should_be_of_type_random_long
-            = () => _randomLong.ShouldBeOfType<RandomData.RandomLong>();
+            = () => _randomLong.ShouldBeOfExactType<RandomData.RandomLong>();
 
         private It Should_return_expected_long_when_calling_value
             = () => ((RandomData.RandomLong)_randomLong).Value.ShouldEqual(_expectedLong);
