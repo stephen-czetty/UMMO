@@ -2,14 +2,21 @@
     "dependencies": {
         "log4net": "2.0.5",
         "Machine.Specifications.Should": "0.11.0",
-        "RhinoMocks": "3.6.1",
-      "UMMO.Extensions": "0.5",
-      "UMMO.TestingUtils": "0.5" 
+        "Machine.Fakes.Moq": "2.7.0",
+        "UMMO.Extensions": {
+          "version": "0.5",
+          "target": "project"
+        },
+        "UMMO.TestingUtils": {
+            "version": "0.5",
+            "target": "project"
+        }
     },
     "frameworks": {
-      "net461": {}
-      //"netstandard1.6": {
-      //    "imports": "dnxcore50"
-      //}
+        "net461": {}
+    },
+    "tools": {
+        "Machine.Specifications.Runner.Console": "0.10.0-Unstable0005",
+        "dotnet-test-mspec": "0.2.0"
     }
 }

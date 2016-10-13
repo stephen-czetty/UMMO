@@ -20,8 +20,8 @@
 #endregion
 
 using System;
+using Machine.Fakes;
 using Machine.Specifications;
-using Rhino.Mocks;
 
 namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomLong
 {
@@ -37,7 +37,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomLong
                                             new Random().NextBytes( _expectedBytes );
                                             _expectedBytes[ sizeof(long) - 1 ] &= 0x7f;
                                             _expectedLong = BitConverter.ToInt64( _expectedBytes, 0 );
-                                            Random.Stub( x => x.NextLong() ).Return( _expectedLong );
+                                            The<IRandom>().WhenToldTo( x => x.NextLong() ).Return( _expectedLong );
                                         };
         private Because Of = () => _randomLong = RandomDataGeneratorUnderTest.LongInteger;
 

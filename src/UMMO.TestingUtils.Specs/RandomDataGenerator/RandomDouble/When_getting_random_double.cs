@@ -20,8 +20,8 @@
 #endregion
 
 using System;
+using Machine.Fakes;
 using Machine.Specifications;
-using Rhino.Mocks;
 
 namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDouble
 {
@@ -32,8 +32,8 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDouble
 
         private Establish Context = () =>
                                         {
-                                            Random.Stub( x => x.NextDouble() ).Return( ExpectedDouble );
-                                            Random.Stub( x => x.Next() ).Return( 1 );
+                                            The<IRandom>().WhenToldTo( x => x.NextDouble() ).Return( ExpectedDouble );
+                                            The<IRandom>().WhenToldTo( x => x.Next() ).Return( 1 );
                                         };
 
         private Because Of = () => _randomDouble = RandomDataGeneratorUnderTest.Double;

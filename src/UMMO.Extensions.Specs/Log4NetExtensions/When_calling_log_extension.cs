@@ -1,6 +1,8 @@
 ﻿using System;
+using log4net;
+using log4net.Core;
+using Machine.Fakes;
 using Machine.Specifications;
-using Rhino.Mocks;
 
 namespace UMMO.Extensions.Specs.Log4NetExtensions
 {
@@ -9,13 +11,19 @@ namespace UMMO.Extensions.Specs.Log4NetExtensions
     {
         private Establish Context = () =>
                                         {
-                                            _logger = LogStub.LogMethod();
+                                            _logger = The<ILog>().LogMethod();
                                         };
 
         private Because Of = () => _logger.LogException(new Exception());
 
         private It Should_call_i_logger_log_when_called
-            = () => LoggerStub.VerifyAllExpectations();
+            =
+            () =>
+                The< ILogger >()
+                    .WasToldTo(
+                        l =>
+                            l.Log( Param< Type >.IsNotNull, Param< Level >.IsNotNull, Param< object >.IsNotNull,
+                                Param< Exception >.IsNotNull ) );
 
         private static ILogWrapper _logger;
     }

@@ -20,8 +20,8 @@
 #endregion
 
 using System;
+using Machine.Fakes;
 using Machine.Specifications;
-using Rhino.Mocks;
 
 namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomInteger
 {
@@ -29,7 +29,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomInteger
     public class When_getting_random_integer : RandomDataGeneratorTestBase
     {
         private const int ExpectedInteger = 22;
-        private Establish Context = () => Random.Stub( x => x.Next() ).Return( ExpectedInteger );
+        private Establish Context = () => The<IRandom>().WhenToldTo( x => x.Next() ).Return( ExpectedInteger );
         private Because Of = () => _randomInteger = RandomDataGeneratorUnderTest.Integer;
 
         private It Should_be_of_type_random_integer

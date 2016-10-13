@@ -1,14 +1,21 @@
 {
     "version": "0.5",
     "dependencies": {
-        "Machine.Specifications.Should": "0.11.0",
-        "RhinoMocks": "3.6.1",
-        "UMMO.TestingUtils": "0.5"
+      "Machine.Fakes.Moq": "2.7.0",
+      "Machine.Specifications.Should": "0.11.0",
+      "UMMO.TestingUtils": {
+        "version": "0.5",
+        "target": "project"
+      }
     },
     "frameworks": {
         //"netstandard1.6": {
         //    "imports": "dnxcore50"
         //},
         "net461": {}
+    },
+    "tools": {
+        "Machine.Specifications.Runner.Console": "0.10.0-Unstable0005",
+        "dotnet-test-mspec": "0.2.0"
     }
 }

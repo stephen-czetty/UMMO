@@ -21,6 +21,7 @@
 
 using System;
 using System.Data;
+using System.Reflection;
 
 namespace UMMO.Extensions
 {
@@ -58,7 +59,7 @@ namespace UMMO.Extensions
         }
 
         private static T GetValue< T >( object value ) {
-            if ( typeof(T).IsEnum )
+            if ( typeof(T).GetTypeInfo().IsEnum )
             {
                 if ( value is int )
                     return (T)value;
