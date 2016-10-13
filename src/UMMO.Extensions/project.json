@@ -1,0 +1,13 @@
+{
+    "version": "0.5",
+    "dependencies": {
+        "log4net": "2.0.5",
+        "System.Data.Common": "4.1.0"
+    },
+    "frameworks": {
+        "net461": {}
+        //"netstandard1.6": {
+        //    "imports": "dnxcore50"
+        //}
+    }
+}

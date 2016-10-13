@@ -39,7 +39,9 @@ namespace UMMO.TestingUtils
         private bool _readyForPlayback;
         private int _recordsetNumber;
         private int _rowNumber;
+#if NET461
         private DataTable _schemaTable;
+#endif
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataReaderMock"/> class.
@@ -244,7 +246,7 @@ namespace UMMO.TestingUtils
             if ( fieldOffset < 0 )
                 return 0;
 
-            byte[] str = Encoding.Default.GetBytes( (string)GetColumnValue( i ) );
+            byte[] str = Encoding.UTF7.GetBytes( (string)GetColumnValue( i ) );
             long k = 0;
             for ( long j = fieldOffset; j < str.Length && k < length; j++, k++ )
                 buffer[ bufferoffset++ ] = str[ j ];
@@ -284,6 +286,9 @@ namespace UMMO.TestingUtils
         public long GetChars( int i, long fieldoffset, char[] buffer, int bufferoffset, int length )
         {
             ThrowUnlessInPlaybackMode();
+
+            if ( buffer == null )
+                throw new ArgumentNullException( nameof( buffer ) );
 
             if ( fieldoffset < 0 )
                 return 0;
@@ -547,6 +552,7 @@ namespace UMMO.TestingUtils
         /// </exception>
         public DataTable GetSchemaTable()
         {
+#if NET461
             ThrowUnlessInPlaybackMode();
 
             if ( _schemaTable == null )
@@ -568,8 +574,10 @@ namespace UMMO.TestingUtils
                     _schemaTable.Rows.Add( newRow );
                 }
             }
-
             return _schemaTable;
+#else
+            throw new NotImplementedException();
+#endif
         }
 
         /// <summary>
@@ -583,7 +591,9 @@ namespace UMMO.TestingUtils
             ThrowUnlessInPlaybackMode();
 
             _rowNumber = -1;
+#if NET461
             _schemaTable = null;
+#endif
             return ( ++_recordsetNumber < _recordsToRetrieve.Count );
         }
 
@@ -651,7 +661,7 @@ namespace UMMO.TestingUtils
             }
         }
 
-        #endregion
+#endregion
 
         /// <summary>
         /// Adds a record set to DataReader

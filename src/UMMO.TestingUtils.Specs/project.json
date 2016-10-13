@@ -1,0 +1,14 @@
+{
+    "version": "0.5",
+    "dependencies": {
+        "Machine.Specifications.Should": "0.11.0",
+        "RhinoMocks": "3.6.1",
+        "UMMO.TestingUtils": "0.5"
+    },
+    "frameworks": {
+        //"netstandard1.6": {
+        //    "imports": "dnxcore50"
+        //},
+        "net461": {}
+    }
+}
