@@ -19,12 +19,12 @@
 
 #endregion
 
+#if NET461
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Security.Permissions;
 using log4net;
 using log4net.Core;
 
@@ -166,3 +166,5 @@ namespace UMMO.Extensions
         #endregion
     }
 }
+
+#endif

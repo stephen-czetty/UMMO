@@ -19,18 +19,18 @@
 
 #endregion
 
+using Machine.Fakes;
 using Machine.Specifications;
 using Machine.Specifications.Annotations;
-using Rhino.Mocks;
 
 namespace UMMO.TestingUtils.Specs.RandomDataGenerator
 {
-    public abstract class RandomDataGeneratorTestBase
+    public abstract class RandomDataGeneratorTestBase : WithFakes
     {
         [UsedImplicitly]
         private Establish Context = () =>
                                         {
-                                            Random = MockRepository.GenerateStub< IRandom >();
+                                            Random = The<IRandom>();
                                             RandomDataGeneratorUnderTest = new RandomDataGeneratorAccessor( Random );
                                         };
 

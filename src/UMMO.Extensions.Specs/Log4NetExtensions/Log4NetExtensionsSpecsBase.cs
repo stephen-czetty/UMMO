@@ -21,25 +21,20 @@
 
 using log4net;
 using log4net.Core;
+using Machine.Fakes;
 using Machine.Specifications;
 using Machine.Specifications.Annotations;
-using Rhino.Mocks;
 
 namespace UMMO.Extensions.Specs.Log4NetExtensions
 {
-    public class Log4NetExtensionsSpecsBase
+    public class Log4NetExtensionsSpecsBase : WithFakes
     {
         [UsedImplicitly]
         private Establish Context = () =>
                                         {
-                                            LogStub = MockRepository.GenerateStub< ILog >();
-                                            LoggerStub = MockRepository.GenerateMock< log4net.Core.ILogger >();
-                                            LogStub.Stub( x => x.Logger ).Return( LoggerStub );
-                                            LoggerStub.Expect( x => x.Log( null, null, null, null ) ).IgnoreArguments();
+                                            The<ILog>().WhenToldTo( x => x.Logger ).Return( The<ILogger> );
                                         };
 
         protected static object ReturnValue;
-        protected static ILog LogStub;
-        protected static ILogger LoggerStub;
     }
 }

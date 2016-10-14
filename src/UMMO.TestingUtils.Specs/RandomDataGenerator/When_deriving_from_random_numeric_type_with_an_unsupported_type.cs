@@ -1,16 +1,17 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
+using Machine.Fakes;
 using Machine.Specifications;
-using Rhino.Mocks;
 using UMMO.TestingUtils.RandomData;
 
 namespace UMMO.TestingUtils.Specs.RandomDataGenerator
 {
-    public class BadRandomNumericTestsBase {
-        protected class BadRandomNumeric : RandomNumericType< Boolean >
+    public class BadRandomNumericTestsBase : WithFakes {
+        protected class BadRandomNumeric : RandomNumericType< bool >
         {
             // Cannot completely cover this method, as the base class will throw an exception
             // before the constructor can exit.
-            [ CoverageExclude ]
+            [ ExcludeFromCodeCoverage ]
             public BadRandomNumeric( IRandom random ) : base( random ) {}
 
             // For test coverage
@@ -37,14 +38,11 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator
     [ Subject( typeof(RandomNumericType< >) ) ]
     public class Bad_random_numeric_tests : BadRandomNumericTestsBase
     {
-        private Establish Context = () => _random = MockRepository.GenerateStub< IRandom >();
-        private Because Of = () => _exception = Catch.Exception( () => new BadRandomNumeric( _random ) );
+        private Because Of = () => _exception = Catch.Exception( () => new BadRandomNumeric( An< IRandom >() ) );
 
         private It Should_throw_random_data_exception
             = () => _exception.ShouldBeOfExactType< RandomDataException >();
 
-
-        private static IRandom _random;
         private static Exception _exception;
 
         #region Test classes
@@ -59,7 +57,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator
 
         private It Should_return_boolean_when_calling_value
             =
-            () => _boolValue.ShouldBeOfExactType< Boolean >();
+            () => _boolValue.ShouldBeOfExactType< bool >();
 
         private It Should_throw_not_implemented_exception_when_calling_between
             =
