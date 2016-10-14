@@ -1,14 +1,14 @@
 {
-  "version": "0.6",
+  "version": "0.7",
   "dependencies": {
     "Machine.Fakes.Moq": "2.7.0",
     "Machine.Specifications.Should": "0.11.0",
     "UMMO.TestingUtils": {
-      "version": "0.6",
+      "version": "0.7",
       "target": "project"
     },
     "UMMO.Extensions": {
-      "version": "0.6",
+      "version": "0.7",
       "target": "project"
     }
   },
