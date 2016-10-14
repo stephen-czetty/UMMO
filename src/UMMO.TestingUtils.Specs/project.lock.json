@@ -113,7 +113,7 @@
           "lib/net46/_._": {}
         }
       },
-      "UMMO.TestingUtils/0.5.0": {
+      "UMMO.TestingUtils/0.6.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6.1",
         "dependencies": {
@@ -381,7 +381,7 @@
         "runtimes/win8-aot/lib/netcore50/System.Runtime.InteropServices.dll"
       ]
     },
-    "UMMO.TestingUtils/0.5.0": {
+    "UMMO.TestingUtils/0.6.0": {
       "type": "project",
       "path": "../UMMO.TestingUtils/project.json",
       "msbuildProject": "../UMMO.TestingUtils/UMMO.TestingUtils.xproj"
@@ -391,7 +391,7 @@
     "": [
       "Machine.Fakes.Moq >= 2.7.0",
       "Machine.Specifications.Should >= 0.11.0",
-      "UMMO.TestingUtils >= 0.5.0"
+      "UMMO.TestingUtils >= 0.6.0"
     ],
     ".NETFramework,Version=v4.6.1": []
   },
