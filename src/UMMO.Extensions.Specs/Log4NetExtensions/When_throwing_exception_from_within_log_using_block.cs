@@ -1,6 +1,8 @@
 ﻿using System;
+using log4net;
+using log4net.Core;
+using Machine.Fakes;
 using Machine.Specifications;
-using Rhino.Mocks;
 
 namespace UMMO.Extensions.Specs.Log4NetExtensions
 {
@@ -10,7 +12,8 @@ namespace UMMO.Extensions.Specs.Log4NetExtensions
         private Because Of = () => _exception = Catch.Exception( TestClass.Test );
 
         private It Should_call_i_logger_log_when_exception_is_thrown
-            = () => LoggerStub.VerifyAllExpectations();
+            = () => The<ILogger>().WasToldTo(l => l.Log(Param<Type>.IsNotNull, Param<Level>.IsNotNull, Param<object>.IsNotNull,
+                                Param<Exception>.IsNull));
 
         private It Should_throw_an_exception
             = () => _exception.ShouldNotBeNull();
@@ -26,7 +29,7 @@ namespace UMMO.Extensions.Specs.Log4NetExtensions
             [CoverageExclude]
             public static void Test()
             {
-                using (LogStub.LogMethod())
+                using (The<ILog>().LogMethod())
                 {
                     throw new ApplicationException();
                 }

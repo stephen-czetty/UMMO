@@ -1,0 +1,22 @@
+{
+  "version": "0.7",
+  "dependencies": {
+    "Machine.Fakes.Moq": "2.7.0",
+    "Machine.Specifications.Should": "0.11.0",
+    "UMMO.TestingUtils": {
+      "version": "0.7",
+      "target": "project"
+    },
+    "UMMO.Extensions": {
+      "version": "0.7",
+      "target": "project"
+    }
+  },
+  "frameworks": {
+    "net461": {}
+  },
+  "tools": {
+    "Machine.Specifications.Runner.Console": "0.10.0-Unstable0005",
+    "dotnet-test-mspec": "0.2.0"
+  }
+}

@@ -20,8 +20,8 @@
 #endregion
 
 using System;
+using Machine.Fakes;
 using Machine.Specifications;
-using Rhino.Mocks;
 
 namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDecimal
 {
@@ -29,7 +29,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDecimal
     public class When_getting_random_decimal : RandomDataGeneratorTestBase
     {
         private const decimal ExpectedDecimal = 22.5m;
-        private Establish Context = () => Random.Stub( x => x.NextDecimal() ).Return( ExpectedDecimal );
+        private Establish Context = () => The<IRandom>().WhenToldTo( x => x.NextDecimal() ).Return( ExpectedDecimal );
         private Because Of = () => _randomDecimal = RandomDataGeneratorUnderTest.Decimal;
 
         private It Should_be_of_type_random_decimal

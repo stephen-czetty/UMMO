@@ -31,7 +31,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Text;
 
 namespace UMMO.TestingUtils.RandomData.Waffle
@@ -154,115 +153,123 @@ namespace UMMO.TestingUtils.RandomData.Waffle
                     result.Append( phrase[ i ] );
         }
 
-/*
-        private void EvaluateCardinalSequence( StringBuilder output )
+        /*
+                private void EvaluateCardinalSequence( StringBuilder output )
+                {
+                    if ( _cardinalSequence >= WafflePhrases.CardinalSequence.Length )
+                        _cardinalSequence = 0;
+
+                    output.Append( WafflePhrases.CardinalSequence[ _cardinalSequence++ ] );
+                }
+        */
+
+        /*
+                private void EvaluateOrdinalSequence( StringBuilder output )
+                {
+                    if ( _ordinalSequence >= WafflePhrases.OrdinalSequences.Length )
+                        _ordinalSequence = 0;
+
+                    output.Append( WafflePhrases.OrdinalSequences[ _ordinalSequence++ ] );
+                }
+        */
+
+        /*
+                private void RandomDate( StringBuilder output )
+                {
+                    output.AppendFormat( "{0:04u}", DateTime.Now.Year - _random.Next( 0, 31 ) );
+                }
+        */
+
+        // From http://stackoverflow.com/a/38361008
+        private static string TitleCaseWords(string str)
         {
-            if ( _cardinalSequence >= WafflePhrases.CardinalSequence.Length )
-                _cardinalSequence = 0;
-
-            output.Append( WafflePhrases.CardinalSequence[ _cardinalSequence++ ] );
-        }
-*/
-
-/*
-        private void EvaluateOrdinalSequence( StringBuilder output )
-        {
-            if ( _ordinalSequence >= WafflePhrases.OrdinalSequences.Length )
-                _ordinalSequence = 0;
-
-            output.Append( WafflePhrases.OrdinalSequences[ _ordinalSequence++ ] );
-        }
-*/
-
-/*
-        private void RandomDate( StringBuilder output )
-        {
-            output.AppendFormat( "{0:04u}", DateTime.Now.Year - _random.Next( 0, 31 ) );
-        }
-*/
-
-        private static string TitleCaseWords( string input )
-        {
-            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase( input );
-        }
-
-/*
-        public void HtmlWaffle( int paragraphs, Boolean includeHeading, StringBuilder result )
-        {
-            _title = string.Empty;
-            _cardinalSequence = 0;
-            _ordinalSequence = 0;
-
-            if ( includeHeading )
+            var tokens = str.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+            for (var i = 0; i < tokens.Length; i++)
             {
-                var title = new StringBuilder();
-                EvaluatePhrase( "the |o of |2 |o", title );
-
-                _title = TitleCaseWords( title.ToString() );
-
-                result.AppendLine( "<html>" );
-                result.AppendLine( "<head>" );
-                result.AppendFormat( "<title>{0}</title>", _title );
-                result.AppendLine();
-                result.AppendLine( "</head>" );
-                result.AppendLine( "<body>" );
-                result.AppendFormat( @"<h1>{0}</h1>", _title );
-                result.AppendLine();
-                EvaluatePhrase( "<blockquote>\"|A |B |C |t\"<br>", result );
-                EvaluatePhrase( "<cite>|f |s in The Journal of the |uc (|uy)</cite></blockquote>", result );
-                result.AppendLine();
-                EvaluatePhrase( "<h2>|c.</h2>", result );
-                result.AppendLine();
-            }
-            result.Append( "<p>" );
-
-            for ( int i = 0; i < paragraphs; i++ )
-            {
-                if ( i != 0 )
-                    EvaluateRandomPhrase( WafflePhrases.MaybeHeading, result );
-
-                EvaluatePhrase( "|A |B |C |D.  ", result );
-                EvaluateRandomPhrase( WafflePhrases.MaybeParagraph, result );
+                var token = tokens[i];
+                tokens[i] = token.Substring(0, 1).ToUpper() + token.Substring(1);
             }
 
-            result.AppendLine( "</p>" );
-            result.AppendLine( "</body>" );
-            result.AppendLine( "</html>" );
+            return string.Join(" ", tokens);
         }
-*/
 
-/*
-        public void TextWaffle( int paragraphs, Boolean includeHeading, StringBuilder result )
-        {
-            _title = string.Empty;
-            _cardinalSequence = 0;
-            _ordinalSequence = 0;
+        /*
+                public void HtmlWaffle( int paragraphs, Boolean includeHeading, StringBuilder result )
+                {
+                    _title = string.Empty;
+                    _cardinalSequence = 0;
+                    _ordinalSequence = 0;
 
-            if ( includeHeading )
-            {
-                var title = new StringBuilder();
-                EvaluatePhrase( "the |o of |2 |o", title );
+                    if ( includeHeading )
+                    {
+                        var title = new StringBuilder();
+                        EvaluatePhrase( "the |o of |2 |o", title );
 
-                _title = TitleCaseWords( title.ToString() );
+                        _title = TitleCaseWords( title.ToString() );
 
-                result.AppendLine( _title );
-                result.AppendLine();
-                EvaluatePhrase( "\"|A |B |C |t\"\n", result );
-                EvaluatePhrase( "(|f |s in The Journal of the |uc (|uy))", result );
-                result.AppendLine();
-                EvaluatePhrase( "|c.", result );
-                result.AppendLine();
-            }
+                        result.AppendLine( "<html>" );
+                        result.AppendLine( "<head>" );
+                        result.AppendFormat( "<title>{0}</title>", _title );
+                        result.AppendLine();
+                        result.AppendLine( "</head>" );
+                        result.AppendLine( "<body>" );
+                        result.AppendFormat( @"<h1>{0}</h1>", _title );
+                        result.AppendLine();
+                        EvaluatePhrase( "<blockquote>\"|A |B |C |t\"<br>", result );
+                        EvaluatePhrase( "<cite>|f |s in The Journal of the |uc (|uy)</cite></blockquote>", result );
+                        result.AppendLine();
+                        EvaluatePhrase( "<h2>|c.</h2>", result );
+                        result.AppendLine();
+                    }
+                    result.Append( "<p>" );
 
-            for ( int i = 0; i < paragraphs; i++ )
-            {
-                if ( i != 0 )
-                    EvaluateRandomPhrase( WafflePhrases.MaybeHeading, result );
+                    for ( int i = 0; i < paragraphs; i++ )
+                    {
+                        if ( i != 0 )
+                            EvaluateRandomPhrase( WafflePhrases.MaybeHeading, result );
 
-                EvaluatePhrase( "|A |B |C |D.  ", result );
-                EvaluateRandomPhrase( WafflePhrases.MaybeParagraph, result );
-            }
-        }
-*/
+                        EvaluatePhrase( "|A |B |C |D.  ", result );
+                        EvaluateRandomPhrase( WafflePhrases.MaybeParagraph, result );
+                    }
+
+                    result.AppendLine( "</p>" );
+                    result.AppendLine( "</body>" );
+                    result.AppendLine( "</html>" );
+                }
+        */
+
+        /*
+                public void TextWaffle( int paragraphs, Boolean includeHeading, StringBuilder result )
+                {
+                    _title = string.Empty;
+                    _cardinalSequence = 0;
+                    _ordinalSequence = 0;
+
+                    if ( includeHeading )
+                    {
+                        var title = new StringBuilder();
+                        EvaluatePhrase( "the |o of |2 |o", title );
+
+                        _title = TitleCaseWords( title.ToString() );
+
+                        result.AppendLine( _title );
+                        result.AppendLine();
+                        EvaluatePhrase( "\"|A |B |C |t\"\n", result );
+                        EvaluatePhrase( "(|f |s in The Journal of the |uc (|uy))", result );
+                        result.AppendLine();
+                        EvaluatePhrase( "|c.", result );
+                        result.AppendLine();
+                    }
+
+                    for ( int i = 0; i < paragraphs; i++ )
+                    {
+                        if ( i != 0 )
+                            EvaluateRandomPhrase( WafflePhrases.MaybeHeading, result );
+
+                        EvaluatePhrase( "|A |B |C |D.  ", result );
+                        EvaluateRandomPhrase( WafflePhrases.MaybeParagraph, result );
+                    }
+                }
+        */
     }
 }

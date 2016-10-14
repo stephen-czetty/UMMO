@@ -1,0 +1,479 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.6.1": {
+      "log4net/2.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net45-full/log4net.dll": {}
+        },
+        "runtime": {
+          "lib/net45-full/log4net.dll": {}
+        }
+      },
+      "Machine.Fakes/2.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Machine.Specifications": "0.9.1"
+        },
+        "compile": {
+          "lib/net40/Machine.Fakes.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Machine.Fakes.dll": {}
+        }
+      },
+      "Machine.Fakes.Moq/2.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Machine.Fakes": "[2.7.0]",
+          "Moq": "4.2.1507.118"
+        },
+        "compile": {
+          "lib/net40/Machine.Fakes.Adapters.Moq.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Machine.Fakes.Adapters.Moq.dll": {}
+        }
+      },
+      "Machine.Specifications/0.11.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Runtime.Remoting",
+          "System.Xml",
+          "System.Xml.Linq",
+          "System.Xml.Serialization"
+        ],
+        "compile": {
+          "lib/net45/Machine.Specifications.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Machine.Specifications.dll": {}
+        }
+      },
+      "Machine.Specifications.Should/0.11.0": {
+        "type": "package",
+        "dependencies": {
+          "Machine.Specifications": "0.11.0"
+        },
+        "compile": {
+          "lib/net45/Machine.Specifications.Should.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Machine.Specifications.Should.dll": {}
+        }
+      },
+      "Moq/4.2.1507.118": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Moq.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Moq.dll": {}
+        }
+      },
+      "System.Collections/4.0.10": {
+        "type": "package",
+        "compile": {
+          "ref/net46/_._": {}
+        },
+        "runtime": {
+          "lib/net46/_._": {}
+        }
+      },
+      "System.Data.Common/4.1.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Data",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net451/System.Data.Common.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.Data.Common.dll": {}
+        }
+      },
+      "System.Linq/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Runtime.Extensions/4.0.10": {
+        "type": "package",
+        "compile": {
+          "ref/net46/_._": {}
+        },
+        "runtime": {
+          "lib/net46/_._": {}
+        }
+      },
+      "System.Runtime.InteropServices/4.0.20": {
+        "type": "package",
+        "compile": {
+          "ref/net46/_._": {}
+        },
+        "runtime": {
+          "lib/net46/_._": {}
+        }
+      },
+      "UMMO.Extensions/0.7.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "System.Data.Common": "4.1.0",
+          "log4net": "2.0.5"
+        },
+        "compile": {
+          "net461/UMMO.Extensions.dll": {}
+        },
+        "runtime": {
+          "net461/UMMO.Extensions.dll": {}
+        }
+      },
+      "UMMO.TestingUtils/0.7.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "System.Collections": "4.0.10",
+          "System.Data.Common": "4.1.0",
+          "System.Linq": "4.0.0",
+          "System.Runtime.Extensions": "4.0.10",
+          "System.Runtime.InteropServices": "4.0.20"
+        },
+        "frameworkAssemblies": [
+          "System.Xml"
+        ],
+        "compile": {
+          "net461/UMMO.TestingUtils.dll": {}
+        },
+        "runtime": {
+          "net461/UMMO.TestingUtils.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "log4net/2.0.5": {
+      "sha512": "AEqPZz+v+OikfnR2SqRVdQPnSaLq5y9Iz1CfRQZ9kTKPYCXHG6zYmDHb7wJotICpDLMr/JqokyjiqKAjUKp0ng==",
+      "type": "package",
+      "path": "log4net/2.0.5",
+      "files": [
+        "lib/net10-full/log4net.dll",
+        "lib/net10-full/log4net.xml",
+        "lib/net11-full/log4net.dll",
+        "lib/net11-full/log4net.xml",
+        "lib/net20-full/log4net.dll",
+        "lib/net20-full/log4net.xml",
+        "lib/net35-client/log4net.dll",
+        "lib/net35-client/log4net.xml",
+        "lib/net35-full/log4net.dll",
+        "lib/net35-full/log4net.xml",
+        "lib/net40-client/log4net.dll",
+        "lib/net40-client/log4net.xml",
+        "lib/net40-full/log4net.dll",
+        "lib/net40-full/log4net.xml",
+        "lib/net45-full/log4net.dll",
+        "lib/net45-full/log4net.xml",
+        "log4net.2.0.5.nupkg.sha512",
+        "log4net.nuspec"
+      ]
+    },
+    "Machine.Fakes/2.7.0": {
+      "sha512": "GMn3/IkI3jJ/ixTuzcISqWPYUL5y4KrhSN8HigonW4tSyoTT5Ox5x7ifMGvwpZgcvMCrsxyGS3Mdq1ZaQ2XIuQ==",
+      "type": "package",
+      "path": "Machine.Fakes/2.7.0",
+      "files": [
+        "Machine.Fakes.2.7.0.nupkg.sha512",
+        "Machine.Fakes.nuspec",
+        "lib/net40/Machine.Fakes.dll",
+        "lib/net40/Machine.Fakes.xml",
+        "readme.txt"
+      ]
+    },
+    "Machine.Fakes.Moq/2.7.0": {
+      "sha512": "DsySY57orE/EqVt8pN3cQwMMGVvIRcuZ75txTvYUDqCE5FVW+oWzyQhp/nGsMn1CJHkiUD4CAF0ZvOHZbM3FSA==",
+      "type": "package",
+      "path": "Machine.Fakes.Moq/2.7.0",
+      "files": [
+        "Machine.Fakes.Moq.2.7.0.nupkg.sha512",
+        "Machine.Fakes.Moq.nuspec",
+        "lib/net40/Machine.Fakes.Adapters.Moq.dll",
+        "lib/net40/Machine.Fakes.Adapters.Moq.xml",
+        "readme.txt"
+      ]
+    },
+    "Machine.Specifications/0.11.0": {
+      "sha512": "5U7xMfGPYZRyaVdl4nrWJ3DG7OVoPofWdjnUC/vLBPgIvwfW2pKwmkee9o1MGIYbsvbaSnJjJLCcQoALu6s8Jg==",
+      "type": "package",
+      "path": "Machine.Specifications/0.11.0",
+      "files": [
+        "Machine.Specifications.0.11.0.nupkg.sha512",
+        "Machine.Specifications.nuspec",
+        "lib/net35/Machine.Specifications.dll",
+        "lib/net40/Machine.Specifications.dll",
+        "lib/net45/Machine.Specifications.dll",
+        "lib/netstandard1.3/Machine.Specifications.dll"
+      ]
+    },
+    "Machine.Specifications.Should/0.11.0": {
+      "sha512": "CdEOWWfsv1ApVRYab+NNEW1Mh1uxFk3zuTNqbjkZhdsTWKTnoChSQjj21f6poV3THdV2b+8i1PVwQTqi4pufSw==",
+      "type": "package",
+      "path": "Machine.Specifications.Should/0.11.0",
+      "files": [
+        "Machine.Specifications.Should.0.11.0.nupkg.sha512",
+        "Machine.Specifications.Should.nuspec",
+        "lib/net35/Machine.Specifications.Should.dll",
+        "lib/net40/Machine.Specifications.Should.dll",
+        "lib/net45/Machine.Specifications.Should.dll",
+        "lib/netstandard1.3/Machine.Specifications.Should.dll"
+      ]
+    },
+    "Moq/4.2.1507.118": {
+      "sha512": "QfnD/kZcaV6mX1cWHta3yMn/d9ly9Q62yNmHQVArKaZcFcuFb4USYeHR/4XoA258WeJ2XfrGMPVQVIURRCoyNw==",
+      "type": "package",
+      "path": "Moq/4.2.1507.118",
+      "files": [
+        "Moq.4.2.1507.118.nupkg.sha512",
+        "Moq.nuspec",
+        "lib/net35/Moq.dll",
+        "lib/net35/Moq.xml",
+        "lib/net40/Moq.dll",
+        "lib/net40/Moq.xml",
+        "lib/sl5/Moq.Silverlight.dll",
+        "lib/sl5/Moq.Silverlight.xml"
+      ]
+    },
+    "System.Collections/4.0.10": {
+      "sha512": "ux6ilcZZjV/Gp7JEZpe+2V1eTueq6NuoGRM3eZCFuPM25hLVVgCRuea6STW8hvqreIOE59irJk5/ovpA5xQipw==",
+      "type": "package",
+      "path": "System.Collections/4.0.10",
+      "files": [
+        "System.Collections.4.0.10.nupkg.sha512",
+        "System.Collections.nuspec",
+        "lib/DNXCore50/System.Collections.dll",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/_._",
+        "lib/netcore50/System.Collections.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/dotnet/System.Collections.dll",
+        "ref/dotnet/System.Collections.xml",
+        "ref/dotnet/de/System.Collections.xml",
+        "ref/dotnet/es/System.Collections.xml",
+        "ref/dotnet/fr/System.Collections.xml",
+        "ref/dotnet/it/System.Collections.xml",
+        "ref/dotnet/ja/System.Collections.xml",
+        "ref/dotnet/ko/System.Collections.xml",
+        "ref/dotnet/ru/System.Collections.xml",
+        "ref/dotnet/zh-hans/System.Collections.xml",
+        "ref/dotnet/zh-hant/System.Collections.xml",
+        "ref/net46/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "runtimes/win8-aot/lib/netcore50/System.Collections.dll"
+      ]
+    },
+    "System.Data.Common/4.1.0": {
+      "sha512": "epU8jeTe7aE7RqGHq9rZ8b0Q4Ah7DgubzHQblgZMSqgW1saW868WmooSyC5ywf8upLBkcVLDu93W9GPWUYsU2Q==",
+      "type": "package",
+      "path": "System.Data.Common/4.1.0",
+      "files": [
+        "System.Data.Common.4.1.0.nupkg.sha512",
+        "System.Data.Common.nuspec",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net451/System.Data.Common.dll",
+        "lib/netstandard1.2/System.Data.Common.dll",
+        "lib/portable-net451+win8+wp8+wpa81/System.Data.Common.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net451/System.Data.Common.dll",
+        "ref/netstandard1.2/System.Data.Common.dll",
+        "ref/netstandard1.2/System.Data.Common.xml",
+        "ref/netstandard1.2/de/System.Data.Common.xml",
+        "ref/netstandard1.2/es/System.Data.Common.xml",
+        "ref/netstandard1.2/fr/System.Data.Common.xml",
+        "ref/netstandard1.2/it/System.Data.Common.xml",
+        "ref/netstandard1.2/ja/System.Data.Common.xml",
+        "ref/netstandard1.2/ko/System.Data.Common.xml",
+        "ref/netstandard1.2/ru/System.Data.Common.xml",
+        "ref/netstandard1.2/zh-hans/System.Data.Common.xml",
+        "ref/netstandard1.2/zh-hant/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/System.Data.Common.dll",
+        "ref/portable-net451+win8+wp8+wpa81/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/de/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/es/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/fr/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/it/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/ja/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/ko/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/ru/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/zh-hans/System.Data.Common.xml",
+        "ref/portable-net451+win8+wp8+wpa81/zh-hant/System.Data.Common.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._"
+      ]
+    },
+    "System.Linq/4.0.0": {
+      "sha512": "r6Hlc+ytE6m/9UBr+nNRRdoJEWjoeQiT3L3lXYFDHoXk3VYsRBCDNXrawcexw7KPLaH0zamQLiAb6avhZ50cGg==",
+      "type": "package",
+      "path": "System.Linq/4.0.0",
+      "files": [
+        "System.Linq.4.0.0.nupkg.sha512",
+        "System.Linq.nuspec",
+        "lib/dotnet/System.Linq.dll",
+        "lib/net45/_._",
+        "lib/netcore50/System.Linq.dll",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "ref/dotnet/System.Linq.dll",
+        "ref/dotnet/System.Linq.xml",
+        "ref/dotnet/de/System.Linq.xml",
+        "ref/dotnet/es/System.Linq.xml",
+        "ref/dotnet/fr/System.Linq.xml",
+        "ref/dotnet/it/System.Linq.xml",
+        "ref/dotnet/ja/System.Linq.xml",
+        "ref/dotnet/ko/System.Linq.xml",
+        "ref/dotnet/ru/System.Linq.xml",
+        "ref/dotnet/zh-hans/System.Linq.xml",
+        "ref/dotnet/zh-hant/System.Linq.xml",
+        "ref/net45/_._",
+        "ref/netcore50/System.Linq.dll",
+        "ref/netcore50/System.Linq.xml",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._"
+      ]
+    },
+    "System.Runtime.Extensions/4.0.10": {
+      "sha512": "5dsEwf3Iml7d5OZeT20iyOjT+r+okWpN7xI2v+R4cgd3WSj4DeRPTvPFjDpacbVW4skCAZ8B9hxXJYgkCFKJ1A==",
+      "type": "package",
+      "path": "System.Runtime.Extensions/4.0.10",
+      "files": [
+        "System.Runtime.Extensions.4.0.10.nupkg.sha512",
+        "System.Runtime.Extensions.nuspec",
+        "lib/DNXCore50/System.Runtime.Extensions.dll",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/_._",
+        "lib/netcore50/System.Runtime.Extensions.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/dotnet/System.Runtime.Extensions.dll",
+        "ref/dotnet/System.Runtime.Extensions.xml",
+        "ref/dotnet/de/System.Runtime.Extensions.xml",
+        "ref/dotnet/es/System.Runtime.Extensions.xml",
+        "ref/dotnet/fr/System.Runtime.Extensions.xml",
+        "ref/dotnet/it/System.Runtime.Extensions.xml",
+        "ref/dotnet/ja/System.Runtime.Extensions.xml",
+        "ref/dotnet/ko/System.Runtime.Extensions.xml",
+        "ref/dotnet/ru/System.Runtime.Extensions.xml",
+        "ref/dotnet/zh-hans/System.Runtime.Extensions.xml",
+        "ref/dotnet/zh-hant/System.Runtime.Extensions.xml",
+        "ref/net46/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "runtimes/win8-aot/lib/netcore50/System.Runtime.Extensions.dll"
+      ]
+    },
+    "System.Runtime.InteropServices/4.0.20": {
+      "sha512": "ZgDyBYfEnjWoz/viS6VOswA6XOkDSH2DzgbpczbW50RywhnCgTl+w3JEvtAiOGyIh8cyx1NJq80jsNBSUr8Pig==",
+      "type": "package",
+      "path": "System.Runtime.InteropServices/4.0.20",
+      "files": [
+        "System.Runtime.InteropServices.4.0.20.nupkg.sha512",
+        "System.Runtime.InteropServices.nuspec",
+        "lib/DNXCore50/System.Runtime.InteropServices.dll",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/_._",
+        "lib/netcore50/System.Runtime.InteropServices.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/dotnet/System.Runtime.InteropServices.dll",
+        "ref/dotnet/System.Runtime.InteropServices.xml",
+        "ref/dotnet/de/System.Runtime.InteropServices.xml",
+        "ref/dotnet/es/System.Runtime.InteropServices.xml",
+        "ref/dotnet/fr/System.Runtime.InteropServices.xml",
+        "ref/dotnet/it/System.Runtime.InteropServices.xml",
+        "ref/dotnet/ja/System.Runtime.InteropServices.xml",
+        "ref/dotnet/ko/System.Runtime.InteropServices.xml",
+        "ref/dotnet/ru/System.Runtime.InteropServices.xml",
+        "ref/dotnet/zh-hans/System.Runtime.InteropServices.xml",
+        "ref/dotnet/zh-hant/System.Runtime.InteropServices.xml",
+        "ref/net46/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "runtimes/win8-aot/lib/netcore50/System.Runtime.InteropServices.dll"
+      ]
+    },
+    "UMMO.Extensions/0.7.0": {
+      "type": "project",
+      "path": "../UMMO.Extensions/project.json",
+      "msbuildProject": "../UMMO.Extensions/UMMO.Extensions.xproj"
+    },
+    "UMMO.TestingUtils/0.7.0": {
+      "type": "project",
+      "path": "../UMMO.TestingUtils/project.json",
+      "msbuildProject": "../UMMO.TestingUtils/UMMO.TestingUtils.xproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "Machine.Fakes.Moq >= 2.7.0",
+      "Machine.Specifications.Should >= 0.11.0",
+      "UMMO.Extensions >= 0.7.0",
+      "UMMO.TestingUtils >= 0.7.0"
+    ],
+    ".NETFramework,Version=v4.6.1": []
+  },
+  "tools": {
+    ".NETCoreApp,Version=v1.0": {
+      "Machine.Specifications.Runner.Console/0.10.0-Unstable0005": {
+        "type": "package"
+      },
+      "dotnet-test-mspec/0.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.0.0",
+          "System.Xml.XPath": "4.0.1",
+          "System.Xml.XPath.XDocument": "4.0.1"
+        },
+        "compile": {
+          "lib/netcoreapp1.0/dotnet-test-mspec.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp1.0/dotnet-test-mspec.dll": {}
+        }
+      }
+    }
+  },
+  "projectFileToolGroups": {
+    ".NETCoreApp,Version=v1.0": [
+      "Machine.Specifications.Runner.Console >= 0.10.0-Unstable0005",
+      "dotnet-test-mspec >= 0.2.0"
+    ]
+  }
+}

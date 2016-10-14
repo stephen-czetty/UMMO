@@ -47,8 +47,8 @@ namespace UMMO.TestingUtils.RandomData
         protected RandomNumericType( IRandom random )
         {
             Random = random;
-            var minValueField = typeof(T).GetField( "MinValue", BindingFlags.Static | BindingFlags.Public );
-            var maxValueField = typeof(T).GetField( "MaxValue", BindingFlags.Static | BindingFlags.Public );
+            var minValueField = typeof(T).GetTypeInfo().GetField( "MinValue", BindingFlags.Static | BindingFlags.Public );
+            var maxValueField = typeof(T).GetTypeInfo().GetField( "MaxValue", BindingFlags.Static | BindingFlags.Public );
 
             if ( minValueField == null || maxValueField == null )
                 // The type is not compatible with this class.
