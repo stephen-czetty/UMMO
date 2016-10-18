@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if NET461
+using System;
 using log4net;
 using log4net.Core;
 using Machine.Fakes;
@@ -19,3 +20,4 @@ namespace UMMO.Extensions.Specs.Log4NetExtensions
             = () => ReturnValue.ShouldBeAssignableTo< ILogWrapper >();
     }
 }
+#endif

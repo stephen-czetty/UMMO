@@ -19,6 +19,7 @@
 
 #endregion
 
+#if NET461
 using log4net;
 using log4net.Core;
 using Machine.Fakes;
@@ -38,3 +39,4 @@ namespace UMMO.Extensions.Specs.Log4NetExtensions
         protected static object ReturnValue;
     }
 }
+#endif
