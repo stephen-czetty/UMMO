@@ -125,7 +125,7 @@
           "lib/net46/_._": {}
         }
       },
-      "UMMO.TestingUtils/0.7.0": {
+      "UMMO.TestingUtils/0.8.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6.1",
         "dependencies": {
@@ -1621,7 +1621,7 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "UMMO.TestingUtils/0.7.0": {
+      "UMMO.TestingUtils/0.8.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
@@ -5449,7 +5449,7 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "UMMO.TestingUtils/0.7.0": {
+    "UMMO.TestingUtils/0.8.0": {
       "type": "project",
       "path": "../UMMO.TestingUtils/project.json",
       "msbuildProject": "../UMMO.TestingUtils/UMMO.TestingUtils.xproj"
@@ -5459,7 +5459,7 @@
     "": [
       "Machine.Fakes.Moq >= 2.8.0-beta3",
       "Machine.Specifications.Should >= 0.11.0",
-      "UMMO.TestingUtils >= 0.7.0"
+      "UMMO.TestingUtils >= 0.8.0"
     ],
     ".NETFramework,Version=v4.6.1": [],
     ".NETStandard,Version=v1.6": []
