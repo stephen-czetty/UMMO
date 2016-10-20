@@ -29,10 +29,11 @@ namespace UMMO.TestingUtils.Specs.DataReaderMock
     public class When_calling_get_functions_with_string_datatype : DataReaderMockSpecsWithRecordSetDefined<string>
     {
         private Establish Context =()=> ExpectedValue = A.Random.String.Resembling.A.Password;
-        
 
+#if NET461
         private It Should_create_datatable_with_correct_data_when_getschematable_is_called
             = () => AssertThatDataTableFromGetSchemaTableIsCorrect( MockUnderTest.GetSchemaTable() );
+#endif
 
         private It Should_fill_buffer_with_bytes_from_string_when_getbytes_is_called
             = AssertThatArrayFromGetBytesIsCorrect;
@@ -55,6 +56,7 @@ namespace UMMO.TestingUtils.Specs.DataReaderMock
         private It Should_return_zero_if_getchars_is_called_with_a_negative_field_offset
             = () => MockUnderTest.GetChars( 0, -1, new char[0], 0, 0 ).ShouldEqual( 0 );
 
+#if NET461
         private static void AssertThatDataTableFromGetSchemaTableIsCorrect( DataTable schemaTable )
         {
             schemaTable.Columns.Count.ShouldEqual( 4 );
@@ -64,6 +66,7 @@ namespace UMMO.TestingUtils.Specs.DataReaderMock
             schemaTable.Rows[ 0 ][ "ColumnSize" ].ShouldEqual( ExpectedValue.Length );
             schemaTable.Rows[ 0 ][ "DataType" ].ShouldEqual( ExpectedValue.GetType() );
         }
+#endif
 
         private static void AssertThatArrayFromGetCharsIsCorrect()
         {
@@ -75,7 +78,7 @@ namespace UMMO.TestingUtils.Specs.DataReaderMock
 
         private static void AssertThatArrayFromGetBytesIsCorrect()
         {
-            byte[] expectedArray = Encoding.Default.GetBytes( ExpectedValue );
+            byte[] expectedArray = Encoding.UTF7.GetBytes( ExpectedValue );
             var buffer = new byte[expectedArray.Length];
             MockUnderTest.GetBytes( 0, 0, buffer, 0, expectedArray.Length ).ShouldEqual( expectedArray.Length );
             buffer.ShouldEqual( expectedArray );

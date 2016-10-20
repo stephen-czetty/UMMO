@@ -3,6 +3,7 @@ using Machine.Specifications;
 
 namespace UMMO.TestingUtils.Specs.DataReaderMock
 {
+#if NET461
     [Subject(typeof(TestingUtils.DataReaderMock))]
     public class When_calling_get_functions_with_numeric_datatype : DataReaderMockSpecsWithRecordSetDefined<int>
     {
@@ -21,4 +22,5 @@ namespace UMMO.TestingUtils.Specs.DataReaderMock
             schemaTable.Rows[0]["DataType"].ShouldEqual(ExpectedValue.GetType());
         }
     }
+#endif
 }

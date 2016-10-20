@@ -3,6 +3,7 @@ using Machine.Specifications;
 
 namespace UMMO.TestingUtils.Specs.DataReaderMock
 {
+#if NET461
     [Subject(typeof(TestingUtils.DataReaderMock))]
     public class When_loading_a_datatable : DataReaderMockSpecsBase
     {
@@ -29,4 +30,5 @@ namespace UMMO.TestingUtils.Specs.DataReaderMock
         private It Should_contain_the_expected_value
             = () => _result.Rows[ 0 ][ 0 ].ShouldEqual( _expectedValue );
     }
+#endif
 }

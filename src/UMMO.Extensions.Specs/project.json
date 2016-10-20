@@ -1,19 +1,22 @@
 {
-  "version": "0.7",
+  "version": "0.8.0",
   "dependencies": {
-    "Machine.Fakes.Moq": "2.7.0",
+    "Machine.Fakes.Moq": "2.8.0-beta3",
     "Machine.Specifications.Should": "0.11.0",
     "UMMO.TestingUtils": {
-      "version": "0.7",
+      "version": "0.8.0",
       "target": "project"
     },
     "UMMO.Extensions": {
-      "version": "0.7",
+      "version": "0.8.0",
       "target": "project"
     }
   },
   "frameworks": {
-    "net461": {}
+    "net461": {},
+    "netstandard1.6": {
+      "imports": "dnxcore5" 
+    }
   },
   "tools": {
     "Machine.Specifications.Runner.Console": "0.10.0-Unstable0005",
