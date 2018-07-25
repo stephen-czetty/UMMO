@@ -32,7 +32,7 @@ using System.Runtime.InteropServices;
 [ assembly: AssemblyConfiguration( "" ) ]
 [ assembly: AssemblyCompany( "House of Czetty" ) ]
 [ assembly: AssemblyProduct( "UMMO.TestingUtils" ) ]
-[ assembly: AssemblyCopyright( "Copyright © 2010-2016" ) ]
+[ assembly: AssemblyCopyright( "Copyright © 2010-2018" ) ]
 [ assembly: AssemblyTrademark( "" ) ]
 [ assembly: AssemblyCulture( "" ) ]
 

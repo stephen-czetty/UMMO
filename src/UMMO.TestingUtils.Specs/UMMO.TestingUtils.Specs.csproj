@@ -30,9 +30,4 @@
     <PackageReference Include="Machine.Specifications.Runner.VisualStudio" Version="2.7.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <DotNetCliToolReference Include="Machine.Specifications.Runner.Console" Version="0.10.0-Unstable0005" />
-    <DotNetCliToolReference Include="dotnet-test-mspec" Version="0.2.0" />
-  </ItemGroup>
-
 </Project>
