@@ -20,6 +20,7 @@
 #endregion
 
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Machine.Specifications;
 using Machine.Specifications.Annotations;
 

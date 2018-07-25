@@ -19,6 +19,7 @@
 
 #endregion
 
+using JetBrains.Annotations;
 using Machine.Specifications;
 using Machine.Specifications.Annotations;
 
