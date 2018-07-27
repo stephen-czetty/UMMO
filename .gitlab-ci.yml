@@ -34,5 +34,5 @@ publish:
     - cd src
     - dotnet pack -c Release -o $(pwd)
     - for i in *.nupkg; do dotnet nuget push "$i" -k "$NUGET_API_KEY" -s "$NUGET_SERVER"; done
-  #only:
-  #  - master
+  only:
+    - master
