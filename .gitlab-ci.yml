@@ -1,6 +1,9 @@
 image: 
   name: microsoft/dotnet:2.1-sdk
 
+variables:
+  GIT_SSL_NO_VERIFY: "true" # There is a possible better way at the bottom of https://gitlab.com/gitlab-org/gitlab-runner/issues/986
+
 stages:
   - build
   - test
