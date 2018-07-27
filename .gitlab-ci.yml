@@ -20,4 +20,4 @@ test:
   script:
   - cd src
   - dotnet build
-  - dotnet vstest $(find -name "*.Specs.dll")
+  - dotnet vstest $(find -name "*.Specs.dll" | grep "bin/Debug")
