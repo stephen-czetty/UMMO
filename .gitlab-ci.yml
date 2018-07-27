@@ -32,5 +32,5 @@ publish:
   stage: deploy
   script:
   - cd src
-  - dotnet pack -c Release -o ..
-  - dotnet nuget push ../*.nupkg -k "eShVmYq3t6w9z$B&E)H@McQfTjWnZr4u" -s "http://ubuntu.houseofczetty.internal:8888/"
+  - dotnet pack -c Release -o $(pwd)
+  - dotnet nuget push *.nupkg -k "eShVmYq3t6w9z$B&E)H@McQfTjWnZr4u" -s "http://ubuntu.houseofczetty.internal:8888/"
