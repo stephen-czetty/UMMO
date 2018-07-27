@@ -19,4 +19,5 @@ test:
   stage: test
   script:
   - cd src
+  - dotnet build
   - dotnet vstest $(find -name "*.Specs.dll")
