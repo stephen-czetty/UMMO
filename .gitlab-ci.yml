@@ -33,7 +33,6 @@ publish:
   script:
     - cd src
     - dotnet pack -c Release -o $(pwd)
-    - dotnet nuget push UMMO.TestingUtils.nupkg -k $NUGET_API_KEY -s $NUGET_SERVER
-    - dotnet nuget push UMMO.Extensions.nupkg -k $NUGET_API_KEY -s $NUGET_SERVER
+    - for i in *.unpkg; do dotnet nuget push "$i" -k "$NUGET_API_KEY" -s "$NUGET_SERVER"; done
   #only:
   #  - master
