@@ -33,4 +33,4 @@ publish:
   script:
   - cd src
   - dotnet pack -c Release -o $(pwd)
-  - dotnet nuget push *.nupkg -k "eShVmYq3t6w9z$B&E)H@McQfTjWnZr4u" -s "http://ubuntu.houseofczetty.internal:8888/"
+  - dotnet nuget push *.nupkg -k 4528482B4D6251655468576D5A713474 -s "http://ubuntu.houseofczetty.internal:8888/"
