@@ -14,6 +14,12 @@ build:
   script:
   - cd src
   - dotnet build
+  
+build_release:
+  stage: build
+  script:
+  - cd src
+  - dotnet build -c Release
 
 test:
   stage: test
@@ -21,3 +27,10 @@ test:
   - cd src
   - dotnet build
   - dotnet vstest $(find -name "*.Specs.dll" | grep "bin/Debug")
+
+publish:
+  stage: deploy
+  script:
+  - cd src
+  - dotnet pack -c Release -o ..
+  - dotnet nuget push ../*.nupkg -k "eShVmYq3t6w9z$B&E)H@McQfTjWnZr4u" -s "http://ubuntu.houseofczetty.internal:8888/"
