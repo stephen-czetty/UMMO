@@ -12,25 +12,27 @@ stages:
 build:
   stage: build
   script:
-  - cd src
-  - dotnet build
+    - cd src
+    - dotnet build
   
 build_release:
   stage: build
   script:
-  - cd src
-  - dotnet build -c Release
+    - cd src
+    - dotnet build -c Release
 
 test:
   stage: test
   script:
-  - cd src
-  - dotnet build
-  - dotnet vstest $(find -name "*.Specs.dll" | grep "bin/Debug")
+    - cd src
+    - dotnet build
+    - dotnet vstest $(find -name "*.Specs.dll" | grep "bin/Debug")
 
 publish:
   stage: deploy
   script:
-  - cd src
-  - dotnet pack -c Release -o $(pwd)
-  - dotnet nuget push *.nupkg -k 4528482B4D6251655468576D5A713474 -s "http://ubuntu.houseofczetty.internal:8888/"
+    - cd src
+    - dotnet pack -c Release -o $(pwd)
+    - dotnet nuget push *.nupkg -k $NUGET_API_KEY -s "http://ubuntu.houseofczetty.internal:8888/"
+  only:
+    - master
