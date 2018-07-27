@@ -1,0 +1,19 @@
+image: 
+  name: microsoft/dotnet:2.1-sdk
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+  - cd src
+  - dotnet build
+
+test:
+  stage: test
+  script:
+  - cd src
+  - dotnet test
