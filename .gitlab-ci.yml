@@ -33,6 +33,7 @@ publish:
   script:
     - cd src
     - dotnet pack -c Release -o $(pwd)
-    - dotnet nuget push *.nupkg -k $NUGET_API_KEY -s "http://ubuntu.houseofczetty.internal:8888/"
-  only:
-    - master
+    - dotnet nuget push UMMO.TestingUtils.nupkg -k $NUGET_API_KEY -s $NUGET_SERVER
+    - dotnet nuget push UMMO.Extensions.nupkg -k $NUGET_API_KEY -s $NUGET_SERVER
+  #only:
+  #  - master
