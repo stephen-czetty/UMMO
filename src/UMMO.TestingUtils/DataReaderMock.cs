@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -31,6 +32,7 @@ namespace UMMO.TestingUtils
     /// <summary>
     /// Implementation of IDataReader, intended for testing ADO-based code.
     /// </summary>
+    [SuppressMessage("ReSharper", "ClassTooBig", Justification="IDataReader is too big, but what can you do?")]
     public class DataReaderMock : IDataReader
     {
         private readonly IList< IList< string > > _recordSetColumnNames;
@@ -39,9 +41,7 @@ namespace UMMO.TestingUtils
         private bool _readyForPlayback;
         private int _recordsetNumber;
         private int _rowNumber;
-#if NET461
         private DataTable _schemaTable;
-#endif
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DataReaderMock"/> class.
@@ -552,7 +552,6 @@ namespace UMMO.TestingUtils
         /// </exception>
         public DataTable GetSchemaTable()
         {
-#if NET461
             ThrowUnlessInPlaybackMode();
 
             if ( _schemaTable == null )
@@ -575,9 +574,6 @@ namespace UMMO.TestingUtils
                 }
             }
             return _schemaTable;
-#else
-            throw new NotImplementedException();
-#endif
         }
 
         /// <summary>
@@ -591,9 +587,7 @@ namespace UMMO.TestingUtils
             ThrowUnlessInPlaybackMode();
 
             _rowNumber = -1;
-#if NET461
             _schemaTable = null;
-#endif
             return ( ++_recordsetNumber < _recordsToRetrieve.Count );
         }
 

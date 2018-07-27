@@ -19,6 +19,7 @@
 
 #endregion
 
+using Machine.Fakes.ReSharperAnnotations;
 using Machine.Specifications;
 using Machine.Specifications.Annotations;
 
