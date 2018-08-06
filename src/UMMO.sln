@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "UMMO.TestingUtils.Specs", "UMMO.TestingUtils.Specs\UMMO.TestingUtils.Specs.xproj", "{C5250F8F-4F0E-4464-8F22-69E6803C19D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMMO.TestingUtils.Specs", "UMMO.TestingUtils.Specs\UMMO.TestingUtils.Specs.csproj", "{C5250F8F-4F0E-4464-8F22-69E6803C19D8}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "UMMO.TestingUtils", "UMMO.TestingUtils\UMMO.TestingUtils.xproj", "{27DD05A9-3274-4269-934B-656FC3B00749}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMMO.TestingUtils", "UMMO.TestingUtils\UMMO.TestingUtils.csproj", "{27DD05A9-3274-4269-934B-656FC3B00749}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "UMMO.Extensions", "UMMO.Extensions\UMMO.Extensions.xproj", "{6C632030-3602-4DFD-8AC6-09804DBEB06A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMMO.Extensions", "UMMO.Extensions\UMMO.Extensions.csproj", "{6C632030-3602-4DFD-8AC6-09804DBEB06A}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "UMMO.Extensions.Specs", "UMMO.Extensions.Specs\UMMO.Extensions.Specs.xproj", "{450477E5-DC58-40DF-BA50-FA8145F5EFF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UMMO.Extensions.Specs", "UMMO.Extensions.Specs\UMMO.Extensions.Specs.csproj", "{450477E5-DC58-40DF-BA50-FA8145F5EFF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {081577A0-DC48-4E84-ABCF-4D7D585CD2E0}
 	EndGlobalSection
 EndGlobal

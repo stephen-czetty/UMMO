@@ -1,0 +1,38 @@
+image: 
+  name: microsoft/dotnet:2.1-sdk
+
+variables:
+  GIT_SSL_NO_VERIFY: "true" # There is a possible better way at the bottom of https://gitlab.com/gitlab-org/gitlab-runner/issues/986
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - cd src
+    - dotnet build
+  
+build_release:
+  stage: build
+  script:
+    - cd src
+    - dotnet build -c Release
+
+test:
+  stage: test
+  script:
+    - cd src
+    - dotnet build
+    - dotnet vstest $(find -name "*.Specs.dll" | grep "bin/Debug")
+
+publish:
+  stage: deploy
+  script:
+    - cd src
+    - dotnet pack -c Release -o $(pwd)
+    - for i in *.nupkg; do dotnet nuget push "$i" -k "$NUGET_API_KEY" -s "$NUGET_SERVER"; done
+  only:
+    - master
