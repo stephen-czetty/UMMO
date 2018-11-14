@@ -40,8 +40,8 @@ namespace UMMO.Extensions.Specs.DataRecordExtensions
                                             record.AddRecordSet( "string", "int", "date", "enum", "nullString",
                                                                  "nullInt", "nullDate", "nullEnum", "enumAsInt" );
                                             _randomDate = A.Random.DateTime;
-                                            _randomString = A.Random.String.Resembling.A.FirstName;
-                                            _randomInt = A.Random.Integer;
+                                            _randomString = A.Random.String.ResemblingA.FirstName;
+                                            _randomInt = A.Random.Integer.Value;
                                             record.AddRow( _randomString, _randomInt, _randomDate, "X", null, null, null,
                                                            null, 1 );
                                             record.Playback();

@@ -31,11 +31,11 @@ namespace UMMO.TestingUtils
     public class RandomDataGenerator
     {
         private readonly IRandom _random;
-        private RandomInteger _randomInteger;
+        private readonly Lazy<RandomNumericType<int>> _randomInteger;
         private readonly Lazy<IResemblingA<IRandomString>> _randomString;
-        private RandomDecimal _randomDecimal;
-        private RandomDouble _randomDouble;
-        private RandomLong _randomLong;
+        private readonly Lazy<RandomNumericType<decimal>> _randomDecimal;
+        private readonly Lazy<RandomNumericType<double>> _randomDouble;
+        private readonly Lazy<RandomNumericType<long>> _randomLong;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RandomDataGenerator"/> class.
@@ -45,6 +45,10 @@ namespace UMMO.TestingUtils
         {
             _random = random;
             _randomString = new Lazy<IResemblingA<IRandomString>>(() => new RandomString(_random));
+            _randomInteger = new Lazy<RandomNumericType<int>>(() => new RandomInteger(_random));
+            _randomLong = new Lazy<RandomNumericType<long>>(() => new RandomLong(_random));
+            _randomDecimal = new Lazy<RandomNumericType<decimal>>(() => new RandomDecimal(_random));
+            _randomDouble = new Lazy<RandomNumericType<double>>(() => new RandomDouble(_random));
         }
 
         /// <summary>
@@ -57,100 +61,67 @@ namespace UMMO.TestingUtils
         /// A random fluent integer.
         /// </summary>
         /// <value>The integer.</value>
-        public RandomInteger Integer
-        {
-            get { return _randomInteger ?? ( _randomInteger = new RandomInteger( _random ) ); }
-        }
+        public RandomNumericType<int> Integer => _randomInteger.Value;
 
         /// <summary>
         /// A random boolean.
         /// </summary>
         /// <value>The boolean.</value>
-        public bool Boolean
-        {
-            get { return _random.NextDouble() >= 0.5; }
-        }
+        public bool Boolean => _random.NextDouble() >= 0.5;
 
         /// <summary>
         /// A random byte.
         /// </summary>
         /// <value>The byte.</value>
-        public byte Byte
-        {
-            get { return _random.NextBytes( 1 )[ 0 ]; }
-        }
+        public byte Byte => _random.NextBytes(1)[0];
 
         /// <summary>
         /// A random character.
         /// </summary>
         /// <value>The character.</value>
-        public char Character
-        {
-            get { return String.Password[ 0 ]; }
-        }
+        public char Character => String.ResemblingA.Password[0];
 
         /// <summary>
         /// A random GUID.
         /// </summary>
         /// <value>The GUID.</value>
-        public Guid Guid
-        {
-            get { return Guid.NewGuid(); }
-        }
+        public Guid Guid => Guid.NewGuid();
 
         /// <summary>
         /// A random short.
         /// </summary>
         /// <value>The short.</value>
-        public short Short
-        {
-            get { return (short)_random.Next(); }
-        }
+        public short Short => (short)_random.Next();
 
         /// <summary>
         /// A random fluent long integer.
         /// </summary>
         /// <value>The long integer.</value>
-        public RandomLong LongInteger
-        {
-            get { return _randomLong ?? ( _randomLong = new RandomLong( _random ) ); }
-        }
+        public RandomNumericType<long> LongInteger => _randomLong.Value;
 
         /// <summary>
         /// A random float.
         /// </summary>
         /// <value>The float.</value>
-        public float Float
-        {
-            get { return (float)( _random.NextDouble() * _random.Next() ); }
-        }
+        public float Float => (float)(_random.NextDouble() * _random.Next());
 
         /// <summary>
         /// A random fluent double.
         /// </summary>
         /// <value>The double.</value>
-        public RandomDouble Double
-        {
-            get { return _randomDouble ?? ( _randomDouble = new RandomDouble( _random ) ); }
-        }
+        public RandomNumericType<double> Double => _randomDouble.Value;
 
         /// <summary>
         /// A random fluent decimal.
         /// </summary>
         /// <value>The decimal.</value>
-        public RandomDecimal Decimal
-        {
-            get { return _randomDecimal ?? ( _randomDecimal = new RandomDecimal( _random ) ); }
-        }
+        public RandomNumericType<decimal> Decimal => _randomDecimal.Value;
 
         /// <summary>
         /// A random date time.
         /// </summary>
         /// <value>The date time.</value>
-        public DateTime DateTime
-        {
-            get { return new DateTime( _random.Next( 1970, 2100 ), _random.Next( 1, 12 ), _random.Next( 1, 28 ) ); }
-        }
+        public DateTime DateTime => new DateTime( _random.Next( 1970, 2100 ), _random.Next( 1, 12 ), _random.Next( 1, 28 ) );
     }
     // ReSharper restore MemberCanBeMadeStatic.Global
 
@@ -159,15 +130,13 @@ namespace UMMO.TestingUtils
     /// </summary>
     public static partial class A
     {
-        private static RandomDataGenerator _randomDataGenerator;
+        private static readonly Lazy<RandomDataGenerator> RandomDataGenerator =
+            new Lazy<RandomDataGenerator>(() => new RandomDataGenerator(new ExtendedRandom()));
 
         /// <summary>
         /// Fluent accessor for random data.
         /// </summary>
         /// <value>The random data accessor.</value>
-        public static RandomDataGenerator Random
-        {
-            get { return _randomDataGenerator ?? (_randomDataGenerator = new RandomDataGenerator(new ExtendedRandom())); }
-        }
+        public static RandomDataGenerator Random => RandomDataGenerator.Value;
     }
 }

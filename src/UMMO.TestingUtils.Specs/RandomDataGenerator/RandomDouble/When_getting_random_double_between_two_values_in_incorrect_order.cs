@@ -21,6 +21,7 @@
 
 using System;
 using Machine.Specifications;
+using UMMO.TestingUtils.RandomData;
 
 namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDouble
 {
@@ -42,7 +43,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDouble
         private It Should_throw_exception_of_type_argument_exception
             = () => _exception.ShouldBeOfExactType<ArgumentException>();
 
-        private static RandomData.RandomDouble _randomDouble;
+        private static RandomNumericType<double> _randomDouble;
         private static double _minValue;
         private static double _maxValue;
         private static Exception _exception;

@@ -42,7 +42,7 @@ namespace UMMO.TestingUtils.RandomData
         }
 
         [Obsolete("Use ResemblingA instead")]
-        public IRandomString Resembling => this;
+        public IResemblingA<IRandomString> Resembling => this;
 
         [Obsolete("Use ResemblingA instead")]
         public IRandomString A => this;
@@ -60,7 +60,7 @@ namespace UMMO.TestingUtils.RandomData
         public string Verb => GetWaffle( "|d" );
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="UMMO.TestingUtils.RandomData.RandomString"/> to <see cref="System.String"/>.
+        /// Performs an implicit conversion from <see cref="RandomString"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="randomString">The random string.</param>
         /// <returns>The result of the conversion.</returns>

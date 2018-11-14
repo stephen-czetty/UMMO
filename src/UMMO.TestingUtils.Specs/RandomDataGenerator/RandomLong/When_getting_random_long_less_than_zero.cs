@@ -20,6 +20,7 @@
 #endregion
 
 using Machine.Specifications;
+using UMMO.TestingUtils.RandomData;
 
 namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomLong
 {
@@ -28,12 +29,12 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomLong
     {
         private Establish Context = () => _randomLong = A.Random.LongInteger;
 
-        private Because Of = () => _randomValue = _randomLong.LessThan( 0 );
+        private Because Of = () => _randomValue = _randomLong.LessThan(0);
 
         private It Should_return_negative_value
-            = () => _randomValue.ShouldBeLessThan( 0 );
+            = () => _randomValue.ShouldBeLessThan(0);
 
-        private static RandomData.RandomLong _randomLong;
+        private static RandomNumericType<long> _randomLong;
         private static long _randomValue;
     }
 }

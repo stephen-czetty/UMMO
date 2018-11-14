@@ -30,16 +30,13 @@ namespace UMMO.TestingUtils.RandomData
         /// Initializes a new instance of the <see cref="RandomDecimal"/> class.
         /// </summary>
         /// <param name="random">The random number generator.</param>
-        public RandomDecimal( IRandom random ) : base( random ) {}
+        public RandomDecimal(IRandom random) : base(random) {}
 
         /// <summary>
         /// Gets the random value.
         /// </summary>
         /// <value>The random value.</value>
-        public override decimal Value
-        {
-            get { return Random.NextDecimal(); }
-        }
+        public override decimal Value => Random.NextDecimal();
 
         /// <summary>
         /// Return a random value of type decimal between the minimum and maximum.
@@ -47,7 +44,7 @@ namespace UMMO.TestingUtils.RandomData
         /// <param name="minValue">The minimum value.</param>
         /// <param name="maxValue">The maximum value.</param>
         /// <returns></returns>
-        protected override decimal GetBetween( decimal minValue, decimal maxValue )
+        protected override decimal GetBetween(decimal minValue, decimal maxValue)
         {
             return Random.NextDecimal(minValue, maxValue);
         }

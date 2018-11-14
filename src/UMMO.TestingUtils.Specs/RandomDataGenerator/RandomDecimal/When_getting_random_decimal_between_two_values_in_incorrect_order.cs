@@ -21,6 +21,7 @@
 
 using System;
 using Machine.Specifications;
+using UMMO.TestingUtils.RandomData;
 
 namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDecimal
 {
@@ -42,7 +43,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDecimal
         private It Should_throw_exception_of_type_argument_exception
             = () => _exception.ShouldBeOfExactType< ArgumentException >();
 
-        private static RandomData.RandomDecimal _randomDecimal;
+        private static RandomNumericType<decimal> _randomDecimal;
         private static decimal _minValue;
         private static decimal _maxValue;
         private static Exception _exception;

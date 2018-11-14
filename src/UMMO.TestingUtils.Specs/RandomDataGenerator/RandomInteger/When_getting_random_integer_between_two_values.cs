@@ -20,6 +20,7 @@
 #endregion
 
 using Machine.Specifications;
+using UMMO.TestingUtils.RandomData;
 
 namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomInteger
 {
@@ -41,7 +42,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomInteger
         private It Should_be_less_than_or_equal_to_maxvalue
             = () => _randomValue.ShouldBeLessThanOrEqualTo(_maxValue);
 
-        private static RandomData.RandomInteger _randomInteger;
+        private static RandomNumericType<int> _randomInteger;
         private static int _minValue;
         private static int _maxValue;
         private static int _randomValue;

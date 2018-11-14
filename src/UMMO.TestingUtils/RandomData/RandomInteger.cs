@@ -21,35 +21,15 @@
 
 namespace UMMO.TestingUtils.RandomData
 {
-    /// <summary>
-    /// Fluent random int
-    /// </summary>
     public class RandomInteger : RandomNumericType<int>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RandomInteger"/> class.
-        /// </summary>
-        /// <param name="random">The random number generator.</param>
         public RandomInteger( IRandom random ) : base( random ) {}
 
-        /// <summary>
-        /// Gets the random value.
-        /// </summary>
-        /// <value>The random value.</value>
-        public override int Value
-        {
-            get { return Random.Next(); }
-        }
+        public override int Value => Random.Next();
 
-        /// <summary>
-        /// Return a random value of type int between the minimum and maximum.
-        /// </summary>
-        /// <param name="minValue">The minimum value.</param>
-        /// <param name="maxValue">The maximum value.</param>
-        /// <returns></returns>
-        protected override int GetBetween( int minValue, int maxValue )
+        protected override int GetBetween(int minValue, int maxValue)
         {
-            return Random.Next( minValue, maxValue );
+            return Random.Next(minValue, maxValue);
         }
     }
 }

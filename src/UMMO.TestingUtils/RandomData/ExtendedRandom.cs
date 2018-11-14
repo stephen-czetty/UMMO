@@ -29,6 +29,7 @@ namespace UMMO.TestingUtils.RandomData
     public class ExtendedRandom : Random, IRandom
     {
         #region IRandom Members
+        /// <inheritdoc />
         /// <summary>
         /// Returns an array of bytes of the specified length filled with random numbers.
         /// </summary>

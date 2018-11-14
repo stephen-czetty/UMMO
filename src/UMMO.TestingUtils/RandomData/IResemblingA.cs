@@ -11,7 +11,7 @@ namespace UMMO.TestingUtils.RandomData
         /// </summary>
         /// <value>This instance.</value>
         [Obsolete("Use ResemblingA instead")]
-        T Resembling { get; }
+        IResemblingA<T> Resembling { get; }
 
         /// <summary>
         /// Syntactic sugar for fluent interface.  Returns instance.

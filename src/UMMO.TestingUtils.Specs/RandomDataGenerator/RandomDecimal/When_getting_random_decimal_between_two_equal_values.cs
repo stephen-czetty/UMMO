@@ -20,6 +20,7 @@
 #endregion
 
 using Machine.Specifications;
+using UMMO.TestingUtils.RandomData;
 
 namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDecimal
 {
@@ -37,7 +38,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomDecimal
         private It Should_return_value
             = () => _randomValue.ShouldEqual( _randomRange );
 
-        private static RandomData.RandomDecimal _randomDecimal;
+        private static RandomNumericType<decimal> _randomDecimal;
         private static decimal _randomRange;
         private static decimal _randomValue;
     }
