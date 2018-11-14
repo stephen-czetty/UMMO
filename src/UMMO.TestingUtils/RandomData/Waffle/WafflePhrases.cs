@@ -29,6 +29,8 @@
 
 #endregion
 
+using System;
+
 namespace UMMO.TestingUtils.RandomData.Waffle
 {
     /// <summary>
@@ -71,8 +73,7 @@ namespace UMMO.TestingUtils.RandomData.Waffle
                                                        };
 */
 
-        public static readonly string[] ArtyNouns = new[]
-                                                        {
+        public static readonly string[] ArtyNouns = {
                                                             "discordance", "legitimisation", "principle",
                                                             "transposition",
                                                             "dimension",
@@ -111,8 +112,7 @@ namespace UMMO.TestingUtils.RandomData.Waffle
                                                             "discord", "milieu"
                                                         };
 
-        public static readonly string[] Surnames = new[]
-                                                       {
+        public static readonly string[] Surnames = {
                                                            "Bennet", "Blotchet-Halls", "Carson", "Clarke", "DeFrance",
                                                            "del Castillo", "Dull", "Green", "Greene",
                                                            "Gringlesby", "Hunter", "Karsen", "Locksley", "MacFeather",
@@ -121,8 +121,7 @@ namespace UMMO.TestingUtils.RandomData.Waffle
                                                            "Straight", "Stringer", "White", "Yokomoto"
                                                        };
 
-        public static readonly string[] Forenames = new[]
-                                                        {
+        public static readonly string[] Forenames = {
                                                             "Abraham", "Reginald", "Cheryl", "Michel", "Innes", "Ann",
                                                             "Marjorie", "Matthew", "Mark", "Luke", "John",
                                                             "Burt", "Lionel", "Humphrey", "Andrew", "Jenny", "Sheryl",
@@ -555,8 +554,7 @@ namespace UMMO.TestingUtils.RandomData.Waffle
                                                             };
 */
 
-        public static readonly string[] Adverbs = new[]
-                                                      {
+        public static readonly string[] Adverbs = {
                                                           "substantively", "intuitively", "uniquely", "semantically",
                                                           "necessarily",
                                                           "stringently", "precisely", "rigorously", "broadly",
@@ -574,8 +572,7 @@ namespace UMMO.TestingUtils.RandomData.Waffle
                                                           "disconcertingly"
                                                       };
 
-        public static readonly string[] Verbs = new[]
-                                                    {
+        public static readonly string[] Verbs = {
                                                         "stimulates", "spreads", "improves", "energises", "emphasizes",
                                                         "subordinates",
                                                         "posits", "perceives", "de-stabilizes", "Revisits",

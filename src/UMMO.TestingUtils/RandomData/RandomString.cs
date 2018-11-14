@@ -19,6 +19,7 @@
 
 #endregion
 
+using System;
 using System.Text;
 using UMMO.TestingUtils.RandomData.Waffle;
 
@@ -27,9 +28,8 @@ namespace UMMO.TestingUtils.RandomData
     /// <summary>
     /// Fluent random string.
     /// </summary>
-    public class RandomString
+    public class RandomString : IRandomString, IResemblingA<IRandomString>
     {
-        private readonly IRandom _random;
         private readonly WaffleEngine _waffleEngine;
 
         /// <summary>
@@ -38,75 +38,26 @@ namespace UMMO.TestingUtils.RandomData
         /// <param name="random">The random number generator.</param>
         public RandomString( IRandom random )
         {
-            _random = random;
-            _waffleEngine = new WaffleEngine( _random );
+            _waffleEngine = new WaffleEngine(random);
         }
 
-        // Methods for fluency
-        /// <summary>
-        /// Syntatic sugar for fluent interface.  Returns instance.
-        /// </summary>
-        /// <value>This instance.</value>
-        public RandomString Resembling
-        {
-            get { return this; }
-        }
+        [Obsolete("Use ResemblingA instead")]
+        public IRandomString Resembling => this;
 
-        /// <summary>
-        /// Syntatic sugar for fluent interface.  Returns instance.
-        /// </summary>
-        /// <value>This instance.</value>
-        public RandomString A
-        {
-            get { return this; }
-        }
+        [Obsolete("Use ResemblingA instead")]
+        public IRandomString A => this;
 
-        //public RandomString An { get { return this; } }
+        public IRandomString ResemblingA => this;
 
-        /// <summary>
-        /// A random first name
-        /// </summary>
-        /// <value>The first name.</value>
-        public string FirstName
-        {
-            get { return GetWaffle( "|f" ); }
-        }
+        public string FirstName => GetWaffle( "|f" );
 
-        /// <summary>
-        /// A random last name.
-        /// </summary>
-        /// <value>The last name.</value>
-        public string LastName
-        {
-            get { return GetWaffle( "|s" ); }
-        }
+        public string LastName => GetWaffle( "|s" );
 
-        /// <summary>
-        /// A random password.
-        /// </summary>
-        /// <value>The password.</value>
-        public string Password
-        {
-            get { return GetWaffle( "|ue|ud" ); }
-        }
+        public string Password => GetWaffle( "|ue|ud" );
 
-        /// <summary>
-        /// A random noun.
-        /// </summary>
-        /// <value>The noun.</value>
-        public string Noun
-        {
-            get { return GetWaffle( "|o" ); }
-        }
+        public string Noun => GetWaffle( "|o" );
 
-        /// <summary>
-        /// A random verb.
-        /// </summary>
-        /// <value>The verb.</value>
-        public string Verb
-        {
-            get { return GetWaffle( "|d" ); }
-        }
+        public string Verb => GetWaffle( "|d" );
 
         /// <summary>
         /// Performs an implicit conversion from <see cref="UMMO.TestingUtils.RandomData.RandomString"/> to <see cref="System.String"/>.

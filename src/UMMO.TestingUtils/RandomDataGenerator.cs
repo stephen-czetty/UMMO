@@ -26,13 +26,13 @@ namespace UMMO.TestingUtils
 {
     // ReSharper disable MemberCanBeMadeStatic.Global
     /// <summary>
-    /// Class for syntatic sugar returned by A.Random
+    /// Class for syntactic sugar returned by A.Random
     /// </summary>
     public class RandomDataGenerator
     {
         private readonly IRandom _random;
         private RandomInteger _randomInteger;
-        private RandomString _randomString;
+        private readonly Lazy<IResemblingA<IRandomString>> _randomString;
         private RandomDecimal _randomDecimal;
         private RandomDouble _randomDouble;
         private RandomLong _randomLong;
@@ -44,16 +44,14 @@ namespace UMMO.TestingUtils
         protected internal RandomDataGenerator(IRandom random)
         {
             _random = random;
+            _randomString = new Lazy<IResemblingA<IRandomString>>(() => new RandomString(_random));
         }
 
         /// <summary>
         /// A random fluent string.
         /// </summary>
         /// <value>The string.</value>
-        public RandomString String
-        {
-            get { return _randomString ?? ( _randomString = new RandomString( _random ) ); }
-        }
+        public IResemblingA<IRandomString> String => _randomString.Value;
 
         /// <summary>
         /// A random fluent integer.

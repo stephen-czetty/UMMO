@@ -22,7 +22,7 @@
 namespace UMMO.TestingUtils
 {
     /// <summary>
-    /// Random number generation.  Absraction from System.Random for testability.
+    /// Random number generation.  Abstraction from System.Random for testability.
     /// </summary>
     public interface IRandom
     {
