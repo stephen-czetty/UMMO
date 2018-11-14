@@ -28,7 +28,10 @@ namespace UMMO.TestingUtils.RandomData
     /// <summary>
     /// Fluent random string.
     /// </summary>
-    public class RandomString : IRandomString, IResemblingA<IRandomString>
+    /// <remarks>
+    /// There is no IRandomString interface because we don't have implicit casting of interfaces.
+    /// </remarks>
+    public class RandomString : IResemblingA<RandomString>
     {
         private readonly WaffleEngine _waffleEngine;
 
@@ -42,12 +45,12 @@ namespace UMMO.TestingUtils.RandomData
         }
 
         [Obsolete("Use ResemblingA instead")]
-        public IResemblingA<IRandomString> Resembling => this;
+        public IResemblingA<RandomString> Resembling => this;
 
         [Obsolete("Use ResemblingA instead")]
-        public IRandomString A => this;
+        public RandomString A => this;
 
-        public IRandomString ResemblingA => this;
+        public RandomString ResemblingA => this;
 
         public string FirstName => GetWaffle( "|f" );
 
