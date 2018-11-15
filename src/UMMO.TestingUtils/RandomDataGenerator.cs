@@ -24,7 +24,6 @@ using UMMO.TestingUtils.RandomData;
 
 namespace UMMO.TestingUtils
 {
-    // ReSharper disable MemberCanBeMadeStatic.Global
     /// <summary>
     /// Class for syntactic sugar returned by A.Random
     /// </summary>

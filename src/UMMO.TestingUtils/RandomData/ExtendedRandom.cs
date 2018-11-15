@@ -20,6 +20,7 @@
 #endregion
 
 using System;
+using static System.Int64;
 
 namespace UMMO.TestingUtils.RandomData
 {
@@ -35,21 +36,18 @@ namespace UMMO.TestingUtils.RandomData
         /// </summary>
         /// <param name="bufferLength">Length of the buffer.</param>
         /// <returns>A random array of bytes.</returns>
-        public byte[] NextBytes( int bufferLength )
+        public byte[] NextBytes(int bufferLength)
         {
             var bytes = new byte[bufferLength];
-            NextBytes( bytes );
+            NextBytes(bytes);
             return bytes;
         }
 
         private int NextInt32()
         {
-            unchecked
-            {
-                int firstBits = Next(0, 1 << 4) << 28;
-                int lastBits = Next(0, 1 << 28);
-                return firstBits | lastBits;
-            }
+            int firstBits = Next(0, 1 << 4) << 28;
+            int lastBits = Next(0, 1 << 28);
+            return firstBits | lastBits;
         }
 
         /// <summary>
@@ -86,7 +84,7 @@ namespace UMMO.TestingUtils.RandomData
         /// </returns>
         public decimal NextDecimal(decimal maxValue)
         {
-            return (NextNonNegativeDecimal() / Decimal.MaxValue) * maxValue;
+            return (NextNonNegativeDecimal() / decimal.MaxValue) * maxValue;
         }
 
         /// <summary>
@@ -104,7 +102,10 @@ namespace UMMO.TestingUtils.RandomData
 
             // We want to prevent overflows, so if we get a situation that would create one,
             // then change the value to Decimal.MaxValue
-            decimal range = ((maxValue == Decimal.MaxValue && minValue < 0) || (minValue == Decimal.MinValue && maxValue > 0)) ? Decimal.MaxValue : maxValue - minValue;
+            decimal range = maxValue == decimal.MaxValue && minValue < 0 ||
+                            minValue == decimal.MinValue && maxValue > 0
+                ? decimal.MaxValue
+                : maxValue - minValue;
             return NextDecimal(range) + minValue;
         }
 
@@ -115,8 +116,7 @@ namespace UMMO.TestingUtils.RandomData
         /// <returns>A 64-bit signed integer.</returns>
         public long NextLong()
         {
-            var bytes = new byte[sizeof(long)];
-            NextBytes(bytes);
+            var bytes = NextBytes(sizeof(long));
             // strip out the sign bit
             //bytes[sizeof(long) - 1] = (byte)(bytes[sizeof(long) - 1] & 0x7f);
             return BitConverter.ToInt64(bytes, 0);
@@ -129,7 +129,7 @@ namespace UMMO.TestingUtils.RandomData
         /// <returns>A 64-bit signed integer.</returns>
         public long NextLong(long maxValue)
         {
-            return (long)((Math.Abs(NextLong()) / (double)Int64.MaxValue) * maxValue);
+            return (long)((Math.Abs(NextLong()) / (double)MaxValue) * maxValue);
         }
 
         /// <summary>
@@ -142,16 +142,16 @@ namespace UMMO.TestingUtils.RandomData
         {
             if (minValue > maxValue)
                 throw new InvalidOperationException();
-            long range = ((maxValue == Int64.MaxValue && minValue < 0) ||
-                           (minValue == Int64.MinValue && maxValue >= 0) ||
-                           (maxValue > 0 && minValue < 0 && (Int64.MaxValue - maxValue + minValue) < 0))
-                             ? Int64.MaxValue // Prevent overflows
+            long range = ((maxValue == MaxValue && minValue < 0) ||
+                           (minValue == MinValue && maxValue >= 0) ||
+                           (maxValue > 0 && minValue < 0 && (MaxValue - maxValue + minValue) < 0))
+                             ? MaxValue // Prevent overflows
                              : maxValue - minValue;
 
             // Some kind of weird thing is going on here...  It seems that
             // Int64.MinValue wants to stay that way.
-            if (minValue == Int64.MinValue)
-                minValue = Int64.MinValue + 1;
+            if (minValue == MinValue)
+                minValue = MinValue + 1;
 
             return NextLong(range) + minValue;
         }

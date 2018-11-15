@@ -60,10 +60,6 @@ namespace UMMO.TestingUtils.RandomData
             _maxValue = (T)maxValueField.GetValue( new T() );
         }
 
-        // For test coverage
-        [Obsolete("The parameter-less constructor should only be used for test coverage")]
-        internal RandomNumericType() {}
-
         public abstract T Value { get; }
 
         public T Between(T minValue, T maxValue)

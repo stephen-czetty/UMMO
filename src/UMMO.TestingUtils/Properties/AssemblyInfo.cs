@@ -20,7 +20,6 @@
 #endregion
 
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
@@ -60,5 +59,3 @@ using System.Runtime.InteropServices;
 [ assembly: AssemblyVersion( "0.8.0.0" ) ]
 [ assembly: AssemblyFileVersion( "0.8.0.0" ) ]
 
-// Allow the specifications assembly access to internals.
-[ assembly:InternalsVisibleTo("UMMO.TestingUtils.Specs") ]
