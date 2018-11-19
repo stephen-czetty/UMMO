@@ -1,5 +1,4 @@
 ﻿#region Copyright
-
 // This file is part of UMMO.
 // 
 // UMMO is free software: you can redistribute it and/or modify
@@ -15,26 +14,28 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with UMMO.  If not, see <http://www.gnu.org/licenses/>.
 //  
-// Copyright 2010, Stephen Michael Czetty
-
+// Copyright 2010-2018, Stephen Michael Czetty
 #endregion
 
-using Machine.Specifications;
+using Moq;
 using UMMO.TestingUtils.RandomData;
 
-namespace UMMO.TestingUtils.Specs.RandomDataGenerator.RandomLong
+namespace UMMO.TestingUtils.Specs.RandomDataGenerator
 {
-    [Subject(typeof(RandomData.RandomLong))]
-    public class When_getting_random_long_less_than_zero
+    public abstract class RandomDataGeneratorTestsBase
     {
-        private Establish Context = () => _randomLong = A.Random.LongInteger;
+        protected static readonly IRandom RealRandom = new ExtendedRandom();
+        protected readonly Mock<IRandom> Random = new Mock<IRandom>();
+        protected readonly TestingUtils.RandomDataGenerator Subject;
 
-        private Because Of = () => _randomValue = _randomLong.LessThan(0);
+        protected RandomDataGeneratorTestsBase()
+        {
+            Subject = new RandomDataGeneratorAccessor(Random.Object);
+        }
 
-        private It Should_return_negative_value
-            = () => _randomValue.ShouldBeLessThan(0);
-
-        private static RandomNumericType<long> _randomLong;
-        private static long _randomValue;
+        private class RandomDataGeneratorAccessor : TestingUtils.RandomDataGenerator
+        {
+            protected internal RandomDataGeneratorAccessor(IRandom random) : base(random) { }
+        }
     }
 }

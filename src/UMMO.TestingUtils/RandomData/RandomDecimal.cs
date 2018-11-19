@@ -48,5 +48,15 @@ namespace UMMO.TestingUtils.RandomData
         {
             return Random.NextDecimal(minValue, maxValue);
         }
+
+        protected override decimal Increment(decimal value)
+        {
+            return value + 1;
+        }
+
+        protected override decimal Decrement(decimal value)
+        {
+            return value - 1;
+        }
     }
 }

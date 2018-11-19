@@ -72,12 +72,12 @@ namespace UMMO.TestingUtils.RandomData
 
         public T GreaterThan(T minValue)
         {
-            return Between(minValue, _maxValue);
+            return Between(Increment(minValue), _maxValue);
         }
 
         public T LessThan(T maxValue)
         {
-            return Between( _minValue, maxValue );
+            return Between(_minValue, Decrement(maxValue));
         }
 
         /// <summary>
@@ -97,5 +97,9 @@ namespace UMMO.TestingUtils.RandomData
         /// <param name="maxValue">The maximum value.</param>
         /// <returns></returns>
         protected abstract T GetBetween(T minValue, T maxValue);
+
+        protected abstract T Increment(T value);
+
+        protected abstract T Decrement(T value);
     }
 }

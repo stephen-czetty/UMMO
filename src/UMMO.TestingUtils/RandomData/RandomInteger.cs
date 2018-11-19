@@ -31,5 +31,15 @@ namespace UMMO.TestingUtils.RandomData
         {
             return Random.Next(minValue, maxValue);
         }
+
+        protected override int Increment(int value)
+        {
+            return value + 1;
+        }
+
+        protected override int Decrement(int value)
+        {
+            return value - 1;
+        }
     }
 }

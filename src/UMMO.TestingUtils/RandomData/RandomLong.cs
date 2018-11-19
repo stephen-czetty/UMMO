@@ -24,6 +24,16 @@ namespace UMMO.TestingUtils.RandomData
             return Random.NextLong(minValue, maxValue);
         }
 
+        protected override long Increment(long value)
+        {
+            return value + 1;
+        }
+
+        protected override long Decrement(long value)
+        {
+            return value - 1;
+        }
+
         #endregion
     }
 }
