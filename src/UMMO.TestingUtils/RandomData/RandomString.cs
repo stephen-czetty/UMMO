@@ -19,7 +19,6 @@
 
 #endregion
 
-using System;
 using System.Text;
 using UMMO.TestingUtils.RandomData.Waffle;
 
@@ -31,7 +30,7 @@ namespace UMMO.TestingUtils.RandomData
     /// <remarks>
     /// There is no IRandomString interface because we don't have implicit casting of interfaces.
     /// </remarks>
-    public class RandomString : IResemblingA<RandomString>
+    public class RandomString : FluentlyResemblingA<RandomString>
     {
         private readonly WaffleEngine _waffleEngine;
 
@@ -44,39 +43,37 @@ namespace UMMO.TestingUtils.RandomData
             _waffleEngine = new WaffleEngine(random);
         }
 
-        [Obsolete("Use ResemblingA instead")]
-        public IResemblingA<RandomString> Resembling => this;
+        public string FirstName => GetWaffle("|f");
 
-        [Obsolete("Use ResemblingA instead")]
-        public RandomString A => this;
+        public string LastName => GetWaffle("|s");
 
-        public RandomString ResemblingA => this;
+        public string Password => GetWaffle("|ue|ud");
 
-        public string FirstName => GetWaffle( "|f" );
+        public string Noun => GetWaffle("|o");
 
-        public string LastName => GetWaffle( "|s" );
+        public string Verb => GetWaffle("|d");
 
-        public string Password => GetWaffle( "|ue|ud" );
-
-        public string Noun => GetWaffle( "|o" );
-
-        public string Verb => GetWaffle( "|d" );
+        public string Phrase => GetWaffle("|e |d |o");
 
         /// <summary>
         /// Performs an implicit conversion from <see cref="RandomString"/> to <see cref="string"/>.
         /// </summary>
         /// <param name="randomString">The random string.</param>
         /// <returns>The result of the conversion.</returns>
-        public static implicit operator string( RandomString randomString )
+        public static implicit operator string(RandomString randomString)
         {
-            return randomString.GetWaffle("|e|d|o");
+            return randomString.Phrase;
         }
 
-        private string GetWaffle( string phrase )
+        private string GetWaffle(string phrase)
         {
             var stringBuilder = new StringBuilder();
-            _waffleEngine.EvaluatePhrase( phrase, stringBuilder );
+            _waffleEngine.EvaluatePhrase(phrase, stringBuilder);
             return stringBuilder.ToString();
         }
+
+        public override RandomString ResemblingA => this;
+
+        public override string Value => Phrase;
     }
 }

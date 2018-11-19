@@ -27,7 +27,7 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator
         [Fact]
         public void When_getting_random_string()
         {
-            string randomString = Subject.String.ResemblingA;
+            string randomString = Subject.String;
 
             randomString.Should().NotBeNullOrWhiteSpace();
         }

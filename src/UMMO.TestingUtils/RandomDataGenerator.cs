@@ -31,7 +31,7 @@ namespace UMMO.TestingUtils
     {
         private readonly IRandom _random;
         private readonly Lazy<RandomNumericType<int>> _randomInteger;
-        private readonly Lazy<IResemblingA<RandomString>> _randomString;
+        private readonly Lazy<FluentlyResemblingA<RandomString>> _randomString;
         private readonly Lazy<RandomNumericType<decimal>> _randomDecimal;
         private readonly Lazy<RandomNumericType<double>> _randomDouble;
         private readonly Lazy<RandomNumericType<long>> _randomLong;
@@ -43,7 +43,7 @@ namespace UMMO.TestingUtils
         protected internal RandomDataGenerator(IRandom random)
         {
             _random = random;
-            _randomString = new Lazy<IResemblingA<RandomString>>(() => new RandomString(_random));
+            _randomString = new Lazy<FluentlyResemblingA<RandomString>>(() => new RandomString(_random));
             _randomInteger = new Lazy<RandomNumericType<int>>(() => new RandomInteger(_random));
             _randomLong = new Lazy<RandomNumericType<long>>(() => new RandomLong(_random));
             _randomDecimal = new Lazy<RandomNumericType<decimal>>(() => new RandomDecimal(_random));
@@ -54,7 +54,7 @@ namespace UMMO.TestingUtils
         /// A random fluent string.
         /// </summary>
         /// <value>The string.</value>
-        public IResemblingA<RandomString> String => _randomString.Value;
+        public FluentlyResemblingA<RandomString> String => _randomString.Value;
 
         /// <summary>
         /// A random fluent integer.
