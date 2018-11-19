@@ -31,5 +31,35 @@ namespace UMMO.TestingUtils.Specs.RandomDataGenerator
 
             randomString.Should().NotBeNullOrWhiteSpace();
         }
+
+        [Fact]
+        public void When_getting_a_first_name()
+        {
+            A.Random.String.ResemblingA.FirstName.Should().NotBeNullOrWhiteSpace();
+        }
+
+        [Fact]
+        public void When_getting_a_last_name()
+        {
+            A.Random.String.ResemblingA.LastName.Should().NotBeNullOrWhiteSpace();
+        }
+
+        [Fact]
+        public void When_getting_a_password()
+        {
+            A.Random.String.ResemblingA.Password.Should().NotBeNullOrWhiteSpace();
+        }
+
+        [Fact]
+        public void When_getting_a_noun()
+        {
+            A.Random.String.ResemblingA.Noun.Should().NotBeNullOrWhiteSpace();
+        }
+
+        [Fact]
+        public void When_getting_a_verb()
+        {
+            A.Random.String.ResemblingA.Verb.Should().NotBeNullOrWhiteSpace();
+        }
     }
 }
